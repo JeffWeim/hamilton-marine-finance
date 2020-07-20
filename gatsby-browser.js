@@ -1,7 +1,6 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+/* eslint-disable */
+import * as React from 'react'
 
-// You can delete this file if you're not using it
+import Layout from './src/components/Layout'
+
+export const wrapPageElement = ({ element, props }) => <Layout {...props}>{element}</Layout>
