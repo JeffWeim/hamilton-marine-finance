@@ -1,0 +1,83 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import Flickity from 'react-flickity-component'
+
+const flickityOptions = {
+  pageDots: false,
+}
+
+const Hero = props => {
+  return (
+    <Container>
+      <Inner>
+        <Flickity options={flickityOptions}>
+          <Slide>
+            <SlideInner>
+              <Copy>
+                <p>Live your dreams</p>
+              </Copy>
+
+              <Image src="https:placehold.it/1000x740" />
+            </SlideInner>
+          </Slide>
+
+          <Slide>
+            <SlideInner>
+              <Copy>
+                <p>Slide 2</p>
+              </Copy>
+
+              <Image src="https:placehold.it/1000x740" />
+            </SlideInner>
+          </Slide>
+        </Flickity>
+      </Inner>
+    </Container>
+  )
+}
+
+const Container = styled.section`
+  background: linear-gradient(90deg, #1f2f97 0%, #1ca6eb 100%);
+  overflow: hidden;
+
+  .flickity-enabled {
+    outline: none;
+  }
+`
+
+const Copy = styled.div`
+  background: ${({ theme }) => theme.colors.white};
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 90%;
+`
+
+const Image = styled.img`
+  /* position: absolute;
+  right: 0;
+  left: 0; */
+`
+
+const Inner = styled.div`
+  padding: 50px 0 50px 0;
+`
+
+const Slide = styled.div`
+  width: 100%;
+`
+
+const SlideInner = styled.div`
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+  position: relative;
+  width: 100%;
+  margin-right: 50px;
+`
+
+Hero.propTypes = {}
+
+export default Hero

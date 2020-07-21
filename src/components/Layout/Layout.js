@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
 
-import { Footer, Header, Seo } from 'Components'
+import { Footer, GlobalStylesheet, Header, Seo } from 'Components'
 
 import { theme } from '../../theme'
 
@@ -20,6 +20,8 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStylesheet />
+
       <Seo title={data.site.siteMetadata.title} />
 
       <Header />
