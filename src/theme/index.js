@@ -3,6 +3,7 @@ import { icons } from './icons'
 export const theme = {
   colors: {
     blue: '#1F2F97',
+    blue2: '#1CA6EB',
     black: '#000000',
     white: '#ffffff',
     tan: '#F6F7F2',

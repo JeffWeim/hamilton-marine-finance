@@ -1,6 +1,6 @@
-import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import React from 'react'
 import styled from 'styled-components'
 
 import Button from '../Button'
@@ -10,8 +10,8 @@ import Text from '../Text'
 export const query = graphql`
   {
     desktop: datoCmsHero {
-      images {
-        fluid(imgixParams: { w: "1840", h: "1300" }) {
+      image {
+        fluid(imgixParams: { w: "1840", h: "1300", q: 85 }, maxWidth: 920) {
           width
           tracedSVG
           srcSet
@@ -25,8 +25,8 @@ export const query = graphql`
       }
     }
     tablet: datoCmsHero {
-      images {
-        fluid(imgixParams: { w: "500", h: "600" }) {
+      image {
+        fluid(imgixParams: { w: "1840", h: "1300", q: 85 }, maxWidth: 480) {
           width
           tracedSVG
           srcSet
@@ -46,10 +46,10 @@ const Hero = () => {
   const render = data => {
     const {
       desktop: {
-        images: [{ fluid: desktopFluid }],
+        image: { fluid: desktopFluid },
       },
       tablet: {
-        images: [{ alt, fluid: tabletFluid }],
+        image: { alt, fluid: tabletFluid },
       },
     } = data
 

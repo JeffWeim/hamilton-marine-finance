@@ -1,6 +1,13 @@
 import React from 'react'
 
-import { Hero, IconWithText, ImageTextStaggered } from 'Components'
+import {
+  FullImageWithText,
+  Hero,
+  IconWithText,
+  ImageGridWithQuote,
+  ImageTextStaggered,
+  Testimonials,
+} from 'Components'
 
 const IndexPage = () => {
   return (
@@ -8,6 +15,9 @@ const IndexPage = () => {
       <Hero />
       <IconWithText />
       <ImageTextStaggered />
+      <FullImageWithText />
+      <ImageGridWithQuote />
+      <Testimonials />
     </>
   )
 }

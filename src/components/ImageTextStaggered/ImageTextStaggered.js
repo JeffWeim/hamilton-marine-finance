@@ -1,14 +1,14 @@
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import React from 'react'
 import styled, { css } from 'styled-components'
-import Img from 'gatsby-image'
-import { StaticQuery, graphql } from 'gatsby'
 
 import Button from '../Button'
 import Display from '../Display'
 import Text from '../Text'
 
 export const query = graphql`
-  query MyQuery {
+  {
     datoCmsStaggeredImage {
       image {
         fluid {
