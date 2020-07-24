@@ -9,9 +9,24 @@ import Text from '../Text'
 
 export const query = graphql`
   {
-    datoCmsHero {
+    desktop: datoCmsHero {
       images {
-        fluid(imgixParams: { w: "920", h: "650" }) {
+        fluid(imgixParams: { w: "1840", h: "1300" }) {
+          width
+          tracedSVG
+          srcSet
+          src
+          sizes
+          height
+          base64
+          aspectRatio
+        }
+        alt
+      }
+    }
+    tablet: datoCmsHero {
+      images {
+        fluid(imgixParams: { w: "500", h: "600" }) {
           width
           tracedSVG
           srcSet
@@ -30,10 +45,21 @@ export const query = graphql`
 const Hero = () => {
   const render = data => {
     const {
-      datoCmsHero: {
-        images: [{ alt, fluid }],
+      desktop: {
+        images: [{ fluid: desktopFluid }],
+      },
+      tablet: {
+        images: [{ alt, fluid: tabletFluid }],
       },
     } = data
+
+    const heroSrc = [
+      { ...tabletFluid },
+      {
+        ...desktopFluid,
+        media: `(min-width: 768px)`,
+      },
+    ]
 
     return (
       <Container>
@@ -53,7 +79,7 @@ const Hero = () => {
             </CopyInner>
           </Copy>
 
-          <StyledImg alt={alt} fluid={fluid} loading="lazy" size={fluid} />
+          <StyledImg alt={alt} fluid={heroSrc} loading="lazy" />
         </Inner>
       </Container>
     )

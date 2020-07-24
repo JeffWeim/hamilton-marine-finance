@@ -6,6 +6,7 @@ import Header from './Header'
 import Hero from './Hero'
 import IconWithText from './IconWithText'
 import Image from './Image'
+import ImageTextStaggered from './ImageTextStaggered'
 import Layout from './Layout'
 import Seo from './Seo'
 import SvgIcon from './SvgIcon'
@@ -20,6 +21,7 @@ export {
   Hero,
   IconWithText,
   Image,
+  ImageTextStaggered,
   Layout,
   Seo,
   SvgIcon,

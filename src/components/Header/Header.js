@@ -1,10 +1,13 @@
-import React from 'react'
-// import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import styled, { css } from 'styled-components'
+import { motion, AnimatePresence } from 'framer-motion'
 
-import { Button } from 'Components'
+import Button from '../Button'
+import SvgIcon from '../SvgIcon'
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   const links = [
     {
       text: 'Need To Know',
@@ -218,19 +221,70 @@ const Header = () => {
 
         <Links>
           {links.map(link => (
-            <LinkItem key={link.text}>
+            <LinkItem key={link.text} desktop>
               <Link href={link.url}>{link.text}</Link>
             </LinkItem>
           ))}
 
-          <LinkItem>
+          <LinkItem desktop>
             <Button href="">Apply Online</Button>
+          </LinkItem>
+
+          <LinkItem mobile>
+            <Hamburger
+              isMobileMenuOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(true)}
+              type="hamburger"
+            />
+            <Close
+              isMobileMenuOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(false)}
+              type="close"
+            />
           </LinkItem>
         </Links>
       </Inner>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <MobileMenu
+            key="mobile-menu"
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 120 }}
+            exit={{ opacity: 0, y: 0 }}
+            transition={{ ease: 'easeOut', duration: 0.3 }}
+          >
+            {links.map(link => (
+              <MobileLink href={link.url}>{link.text}</MobileLink>
+            ))}
+
+            <StyledButton>Apply Online</StyledButton>
+          </MobileMenu>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
+
+const Hamburger = styled(SvgIcon)`
+  transition: all 300ms ease;
+  pointer-events: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'none' : 'auto')};
+  opacity: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 0 : 1)};
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+`
+
+const Close = styled(SvgIcon)`
+  transition: all 300ms ease;
+  pointer-events: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'auto' : 'none')};
+  opacity: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 1 : 0)};
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+`
 
 const Inner = styled.div`
   align-items: center;
@@ -239,8 +293,18 @@ const Inner = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 30px 0;
+  padding: 30px;
+  position: relative;
   width: 100%;
+  z-index: 60;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    padding: 30px 60px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
+    padding: 30px 0;
+  }
 `
 
 const Link = styled.a`
@@ -252,22 +316,88 @@ const Link = styled.a`
 
 const LinkItem = styled.li`
   margin: 0 10px 0 0;
+  position: relative;
 
   &:last-child {
     margin-right: 0;
   }
+
+  ${({ desktop }) =>
+    desktop &&
+    css`
+      display: none;
+
+      @media screen and (min-width: ${({ theme }) => theme.screen.md1}) {
+        display: block;
+      }
+    `}
+
+  ${({ mobile }) =>
+    mobile &&
+    css`
+      display: block;
+
+      @media screen and (min-width: ${({ theme }) => theme.screen.md1}) {
+        display: none;
+      }
+    `}
 `
 
 const Links = styled.ul`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   list-style-type: none;
-  margin: 0;
   padding: 0;
   width: 80%;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md1}) {
+    justify-content: space-evenly;
+  }
 `
 
-Header.propTypes = {}
+const MobileLink = styled.a`
+  color: ${({ theme }) => theme.colors.blue};
+  font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-size: 30px;
+  letter-spacing: 0.6px;
+  line-height: 60px;
+  text-decoration: none;
+`
+
+const MobileMenu = styled(motion.div)`
+  background-color: ${({ theme }) => theme.colors.tan};
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+  justify-content: center;
+  padding: 0 40px;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    height: 50vh;
+
+    &:after {
+      content: '';
+      background: black;
+      opacity: 0.4;
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      height: 100%;
+      width: 100%;
+    }
+  }
+`
+
+const StyledButton = styled(Button)`
+  width: 100%;
+  max-width: 275px;
+  margin: 40px auto 0;
+`
 
 export default Header

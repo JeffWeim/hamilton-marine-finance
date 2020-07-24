@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { Hero, IconWithText } from 'Components'
+import { Hero, IconWithText, ImageTextStaggered } from 'Components'
 
 const IndexPage = () => {
   return (
     <>
       <Hero />
-
       <IconWithText />
+      <ImageTextStaggered />
     </>
   )
 }

@@ -5,6 +5,7 @@ export const theme = {
     blue: '#1F2F97',
     black: '#000000',
     white: '#ffffff',
+    tan: '#F6F7F2',
   },
   fonts: {
     OpenSansBold: 'Open Sans Bold',

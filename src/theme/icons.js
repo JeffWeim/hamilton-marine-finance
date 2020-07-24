@@ -210,4 +210,31 @@ export const icons = {
       },
     ],
   },
+  close: {
+    title: 'close',
+    height: 24,
+    width: 24,
+    path: [
+      {
+        d:
+          'M8.83883 12.3744L0 21.2132L3.53553 24.7487L12.3744 15.9099L21.2132 24.7487L24.7487 21.2132L15.9099 12.3744L24.7487 3.53553L21.2132 0L12.3744 8.83883L3.53553 0L0 3.53553L8.83883 12.3744Z',
+        fill: '#1F2F97',
+        fillRule: 'evenodd',
+        clipRule: 'evenodd',
+      },
+    ],
+  },
+  hamburger: {
+    title: 'hamburger',
+    height: 25,
+    width: 30,
+    path: [
+      {
+        d: 'M0 0H30V5H0V0ZM0 10H30V15H0V10ZM30 20H0V25H30V20Z',
+        fill: '#1F2F97',
+        fillRule: 'evenodd',
+        clipRule: 'evenodd',
+      },
+    ],
+  },
 }
