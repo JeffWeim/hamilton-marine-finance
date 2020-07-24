@@ -1,3 +1,5 @@
+import { icons } from './icons'
+
 export const theme = {
   colors: {
     blue: '#1F2F97',
@@ -5,6 +7,7 @@ export const theme = {
     white: '#ffffff',
   },
   fonts: {
+    OpenSansBold: 'Open Sans Bold',
     OpenSansSemibold: 'Open Sans Semibold',
     OpenSansRegular: 'Open Sans Regular',
     OpenSansSemiboldItalic: 'Open Sans Semibold Italic',
@@ -14,7 +17,9 @@ export const theme = {
     xs: '480px',
     sm: '640px',
     md: '768px',
+    md1: '769px',
     lg: '1024px',
+    lg1: '1025px',
     xl: '1440px',
     xxl: '1920px',
     xxxl: '2450px',
@@ -52,5 +57,8 @@ export const theme = {
         fontSizeMax: 16,
       },
     },
+  },
+  icons: {
+    ...icons,
   },
 }

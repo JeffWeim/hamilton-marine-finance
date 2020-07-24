@@ -7,13 +7,13 @@ const Text = props => {
   const { children, className, color, size } = props
 
   return (
-    <TextTag className={className} color={color} size={size}>
+    <TextBase className={className} color={color} size={size}>
       {children}
-    </TextTag>
+    </TextBase>
   )
 }
 
-const TextTag = styled.p`
+const TextBase = styled.p`
   color: ${({ color }) => color};
   font-family: ${({ theme }) => theme.fonts.OpenSansRegular};
   line-height: ${({ theme, size }) => theme.fontStyles.text[size].lineHeight};

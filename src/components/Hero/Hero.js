@@ -3,13 +3,15 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
-import { Button, Display, Text } from 'Components'
+import Button from '../Button'
+import Display from '../Display'
+import Text from '../Text'
 
 export const query = graphql`
   {
     datoCmsHero {
       images {
-        fluid {
+        fluid(imgixParams: { w: "920", h: "650" }) {
           width
           tracedSVG
           srcSet
@@ -37,14 +39,18 @@ const Hero = () => {
       <Container>
         <Inner>
           <Copy>
-            <Display>Live Your Dreams</Display>
+            <CopyInner>
+              <Display>Live Your Dreams</Display>
 
-            <Text>
-              Turn dreams to reality with Hamilton Marine Finance. We are diligent in streamlining
-              the finance process.
-            </Text>
+              <Line />
 
-            <Button size="small">Apply Now</Button>
+              <StyledText>
+                Turn dreams to reality with Hamilton Marine Finance. We are diligent in streamlining
+                the finance process.
+              </StyledText>
+
+              <Button size="small">Apply Online</Button>
+            </CopyInner>
           </Copy>
 
           <StyledImg alt={alt} fluid={fluid} loading="lazy" size={fluid} />
@@ -67,29 +73,74 @@ const Container = styled.section`
 
 const Copy = styled.div`
   background: ${({ theme }) => theme.colors.white};
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 40%;
-  height: 75%;
+  position: relative;
+  top: -60px;
+  width: calc(100% - 40px);
   z-index: 1;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    left: 0;
+    position: absolute;
+    top: 50px;
+    width: 50%;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
+    width: 40%;
+  }
+`
+
+const CopyInner = styled.div`
+  padding: 40px;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
+    float: right;
+    margin-right: 80px;
+    max-width: 50%;
+    padding: 50px 0 50px;
+  }
+`
+
+const Line = styled.hr`
+  background: ${({ theme }) => theme.colors.blue};
+  height: 2px;
+  margin: 18px 0;
+  width: 80px;
+`
+
+const StyledText = styled(Text)`
+  margin: 0 0 60px;
 `
 
 const StyledImg = styled(Img)`
-  max-width: 1300px;
+  max-width: 920px;
   width: 100%;
-  margin-left: 21.5vw;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    margin-left: 32.5vw;
+    height: calc(45vw + 250px);
+  }
+
+  @media screen and (min-width: 1450px) {
+    margin-left: 0;
+    height: auto;
+  }
 `
 
 const Inner = styled.div`
-  padding: 50px 50px 50px 0;
-  position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  width: 100%;
-  max-width: 1900px;
+  flex-direction: column-reverse;
   margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 0 40px;
+  position: relative;
+  width: 100%;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    padding: 50px 50px 50px 0;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
 `
 
 export default Hero
