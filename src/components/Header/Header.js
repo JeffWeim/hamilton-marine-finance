@@ -28,7 +28,7 @@ const Header = () => {
   ]
 
   return (
-    <header>
+    <HeaderBase>
       <Inner>
         <svg
           width="161"
@@ -262,7 +262,7 @@ const Header = () => {
           </MobileMenu>
         )}
       </AnimatePresence>
-    </header>
+    </HeaderBase>
   )
 }
 
@@ -274,6 +274,13 @@ const Hamburger = styled(SvgIcon)`
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+`
+
+const HeaderBase = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: white;
 `
 
 const Close = styled(SvgIcon)`
