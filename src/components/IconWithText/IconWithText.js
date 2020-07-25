@@ -10,7 +10,7 @@ import Text from '../Text'
 
 const IconWithText = () => {
   return (
-    <Container>
+    <Container id="need-to-know">
       <Inner>
         <StyledDisplay color="white" size="large">
           What you need to know.

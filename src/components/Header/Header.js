@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 import Button from '../Button'
 import SvgIcon from '../SvgIcon'
@@ -11,19 +12,19 @@ const Header = () => {
   const links = [
     {
       text: 'Need To Know',
-      url: '',
+      url: '#need-to-know',
     },
     {
       text: 'Other Services',
-      url: '',
+      url: '#other-services',
     },
     {
       text: 'About',
-      url: '',
+      url: '#about',
     },
     {
       text: 'Contact',
-      url: '',
+      url: '#contact',
     },
   ]
 
@@ -255,7 +256,9 @@ const Header = () => {
             transition={{ ease: 'easeOut', duration: 0.3 }}
           >
             {links.map(link => (
-              <MobileLink href={link.url}>{link.text}</MobileLink>
+              <MobileLink offset="100" href={link.url} onClick={() => setIsMobileMenuOpen(false)}>
+                {link.text}
+              </MobileLink>
             ))}
 
             <StyledButton>Apply Online</StyledButton>
@@ -316,7 +319,7 @@ const Inner = styled.div`
   }
 `
 
-const Link = styled.a`
+const Link = styled(AnchorLink)`
   color: ${({ theme }) => theme.colors.blue};
   font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
   text-decoration: none;
@@ -365,7 +368,7 @@ const Links = styled.ul`
   }
 `
 
-const MobileLink = styled.a`
+const MobileLink = styled(AnchorLink)`
   color: ${({ theme }) => theme.colors.blue};
   font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
   font-size: 30px;

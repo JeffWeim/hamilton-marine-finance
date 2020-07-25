@@ -2,6 +2,7 @@ import React from 'react'
 
 import {
   Contact,
+  Cta,
   FullImageWithText,
   Hero,
   IconWithText,
@@ -20,6 +21,7 @@ const IndexPage = () => {
       <ImageGridWithQuote />
       <Testimonials />
       <Contact />
+      <Cta />
     </>
   )
 }

@@ -36,7 +36,7 @@ const ImageGridWithQuote = () => {
     } = data
 
     return (
-      <Container>
+      <Container id="about">
         <Images>
           <Left>
             <StyledDisplay size="large" mobile>
@@ -242,8 +242,8 @@ const TextArea = styled.div`
   background-color: ${({ theme }) => theme.colors.blue};
   margin: 0;
   padding: 0 0 50px;
-  text-align: center;
   position: relative;
+  text-align: center;
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     margin: -210px 0 0;
@@ -251,16 +251,17 @@ const TextArea = styled.div`
 `
 
 const Texture = styled.img`
-  position: relative;
-  max-width: 100%;
   display: none;
+  max-width: 100%;
+  position: relative;
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     display: block;
+    height: 400px;
+    margin: 0 auto;
+    max-width: 100%;
     padding: 0 100px;
     top: -130px;
-    max-width: 100%;
-    height: 400px;
   }
 
   @media screen and (min-width: 1200px) {

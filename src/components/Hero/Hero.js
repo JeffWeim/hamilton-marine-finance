@@ -11,7 +11,7 @@ export const query = graphql`
   {
     desktop: datoCmsHero {
       image {
-        fluid(imgixParams: { w: "1840", h: "1300", q: 85 }, maxWidth: 920) {
+        fluid(imgixParams: { w: "1000", h: "1300", q: 85 }, maxWidth: 920) {
           width
           tracedSVG
           srcSet
@@ -26,7 +26,7 @@ export const query = graphql`
     }
     tablet: datoCmsHero {
       image {
-        fluid(imgixParams: { w: "1840", h: "1300", q: 85 }, maxWidth: 480) {
+        fluid(imgixParams: { w: "480", h: "1300", q: 85 }, maxWidth: 480) {
           width
           tracedSVG
           srcSet

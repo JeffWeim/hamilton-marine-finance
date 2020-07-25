@@ -34,7 +34,7 @@ const Contact = () => {
     } = data
 
     return (
-      <Container>
+      <Container id="contact">
         <Inner>
           <StyledImage fluid={fluid} loading="lazy" />
 
@@ -109,7 +109,10 @@ const Inner = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     flex-direction: row;
+    margin: 0 auto;
+    max-width: 1480px;
     padding: 80px 10% 0 0;
+    width: 100%;
   }
 
   &:after {

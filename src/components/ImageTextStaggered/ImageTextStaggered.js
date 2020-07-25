@@ -35,7 +35,7 @@ const ImageTextStaggered = () => {
     } = data
 
     return (
-      <Container>
+      <Container id="other-services">
         <Inner>
           <StyledDisplay>Other Services.</StyledDisplay>
 

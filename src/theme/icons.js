@@ -249,4 +249,120 @@ export const icons = {
       },
     ],
   },
+  phone: {
+    title: 'phone',
+    height: 51,
+    width: 58,
+    path: [
+      {
+        d:
+          'M51.6953 2.29377C55.1773 3.00477 58.0003 6.30677 58.0003 9.85877V13.2068C58.0003 15.9618 55.7563 18.2068 53.0003 18.2068H45.0003C42.2453 18.2078 40.0003 15.9628 40.0003 13.2068V11.2068C32.5243 10.4658 25.4813 10.4658 18.0003 11.2068V13.2068C18.0003 15.9628 15.7543 18.2078 13.0003 18.2068H5.00031C2.24431 18.2068 0.000305441 15.9618 0.000305441 13.2068V9.85877C-0.000694559 6.30677 2.82231 3.00477 6.30431 2.29377C20.8063 -0.661231 36.1813 -0.866231 51.6953 2.29377Z',
+        fill: '#1F2F97',
+        fillRule: 'evenodd',
+        clipRule: 'evenodd',
+      },
+      {
+        d:
+          'M52 50.207H6V42.642C6 31.547 14.121 22.468 25.217 22.468H32.782C43.878 22.468 52 31.547 52 42.642V50.207Z',
+        fill: '#1F2F97',
+        fillRule: 'evenodd',
+        clipRule: 'evenodd',
+      },
+      {
+        d:
+          'M38 37.2068C38 42.1778 33.971 46.2068 29 46.2068C24.028 46.2068 20 42.1778 20 37.2068C20 32.2368 24.028 28.2068 29 28.2068C33.971 28.2068 38 32.2368 38 37.2068Z',
+        fillRule: 'evenodd',
+        clipRule: 'evenodd',
+        stroke: '#fff',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      },
+    ],
+  },
+  location: {
+    title: 'location',
+    height: 61,
+    width: 42,
+    path: [
+      {
+        d:
+          'M41 21.207C41 32.253 21 59.207 21 59.207C21 59.207 1 32.253 1 21.207C1 10.162 9.954 1.20703 21 1.20703C32.046 1.20703 41 10.162 41 21.207Z',
+        fill: '#1F2F97',
+        stroke: '#1F2F97',
+        fillRule: 'evenodd',
+        clipRule: 'evenodd',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      },
+      {
+        d:
+          'M29 21.207C29 25.625 25.418 29.207 21 29.207C16.582 29.207 13 25.625 13 21.207C13 16.789 16.582 13.207 21 13.207C25.418 13.207 29 16.789 29 21.207Z',
+        stroke: '#fff',
+        fillRule: 'evenodd',
+        clipRule: 'evenodd',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      },
+    ],
+  },
+  email: {
+    title: 'email',
+    height: 27,
+    width: 60,
+    path: [
+      {
+        d:
+          'M51.647 23.2178C50.811 25.3068 48.439 26.9998 46.351 26.9998H16.09C14.002 26.9998 12.985 25.3068 13.821 23.2178L20.881 5.56576C21.718 3.47676 23 0.999756 26 0.999756H56C59 0.999756 59.543 3.47676 58.708 5.56576L51.647 23.2178Z',
+        fill: '#1F2F97',
+        stroke: '#1F2F97',
+        fillRule: 'evenodd',
+        clipRule: 'evenodd',
+      },
+      {
+        d: 'M53.1587 6.82617L35.2557 16.9132L25.4197 6.82617',
+        stroke: '#fff',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      },
+      {
+        d: 'M19 23L27 17',
+        stroke: '#fff',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      },
+      {
+        d: 'M47 23L43 17',
+        stroke: '#fff',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      },
+      {
+        d: 'M14 1H1',
+        stroke: '#1F2F97',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      },
+      {
+        d: 'M6 25H1',
+        stroke: '#1F2F97',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      },
+      {
+        d: 'M8.5654 13H1.0004',
+        stroke: '#1F2F97',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      },
+    ],
+  },
 }

@@ -9,10 +9,10 @@ export const theme = {
     tan: '#F6F7F2',
   },
   fonts: {
-    OpenSansBold: 'Open Sans Bold',
-    OpenSansSemibold: 'Open Sans Semibold',
-    OpenSansRegular: 'Open Sans Regular',
-    OpenSansSemiboldItalic: 'Open Sans Semibold Italic',
+    OpenSansBold: 'Open Sans Bold, sans-serif',
+    OpenSansSemibold: 'Open Sans Semibold, sans-serif',
+    OpenSansRegular: 'Open Sans Regular, sans-serif',
+    OpenSansSemiboldItalic: 'Open Sans Semibold Italic, sans-serif',
   },
   screen: {
     xxs: '320px',
