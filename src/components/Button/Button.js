@@ -1,9 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Button = props => {
-  const { className, children, color, href, size } = props
+  const { className, children, color, href, size, scroll } = props
+
+  if (scroll) {
+    return (
+      <ScrollBase className={className} color={color} href={href} size={size}>
+        {children}
+      </ScrollBase>
+    )
+  }
 
   return (
     <Base className={className} color={color} href={href} size={size}>
@@ -12,7 +21,7 @@ const Button = props => {
   )
 }
 
-const Base = styled.a`
+const styles = css`
   border-radius: 35px;
   font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
   text-decoration: none;
@@ -47,10 +56,19 @@ const Base = styled.a`
     `}
 `
 
+const ScrollBase = styled(AnchorLink)`
+  ${styles}
+`
+
+const Base = styled.a`
+  ${styles}
+`
+
 Button.defaultProps = {
   className: '',
   color: 'gradient',
   href: '',
+  scroll: false,
   size: 'regular',
 }
 
@@ -59,6 +77,7 @@ Button.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['gradient', 'white']),
   href: PropTypes.string,
+  scroll: PropTypes.bool,
   size: PropTypes.oneOf(['regular', 'small']),
 }
 

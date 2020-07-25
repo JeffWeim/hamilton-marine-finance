@@ -2,10 +2,31 @@ module.exports = {
   siteMetadata: {
     title: `Hamilton Marine Finance`,
     description: ``,
-    author: `Hamilton Marine Finance`,
+    author: ``,
+    siteUrl: `https://www.hamiltonmarinefinance.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-smoothscroll`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/*': [
+            "Content-Security-Policy: frame-ancestors 'none'",
+            'Service-Worker-Allowed: /',
+            'X-Frame-Options: DENY',
+            'X-XSS-Protection: 1; mode=block',
+            'X-Content-Type-Options: nosniff',
+          ],
+        },
+        mergeSecurityHeaders: false,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,16 +34,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `hamilton-marine-finance`,
-        short_name: `starter`,
+        short_name: `hmf`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#1F2F97`,
+        theme_color: `#1F2F97`,
         display: `minimal-ui`,
         // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
@@ -36,8 +55,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-source-datocms`,
       options: {
@@ -50,7 +67,7 @@ module.exports = {
 
         // If you are working on development/staging environment, you might want to
         // preview the latest version of records instead of the published one:
-        previewMode: false,
+        previewMode: true,
 
         // Disable automatic reloading of content when some change occurs on DatoCMS:
         disableLiveReload: false,

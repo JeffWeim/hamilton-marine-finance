@@ -71,7 +71,9 @@ const ImageTextStaggered = () => {
         <Cta>
           <SectionTitle>More questions?</SectionTitle>
 
-          <Button size="small">Contact Us</Button>
+          <Button size="small" href="#contact" scroll>
+            Contact Us
+          </Button>
         </Cta>
       </Container>
     )

@@ -54,7 +54,9 @@ const IconWithText = () => {
             <StyledButton first color="white">
               Apply Online
             </StyledButton>
-            <StyledButton color="white">Contact Us</StyledButton>
+            <StyledButton color="white" href="#contact" scroll>
+              Contact Us
+            </StyledButton>
           </Buttons>
         </Desktop>
       </Inner>
@@ -70,7 +72,9 @@ const IconWithText = () => {
           <StyledButton first color="white">
             Apply Online
           </StyledButton>
-          <StyledButton color="white">Contact Us</StyledButton>
+          <StyledButton color="white" href="#contact" scroll>
+            Contact Us
+          </StyledButton>
         </Buttons>
       </Mobile>
     </Container>
