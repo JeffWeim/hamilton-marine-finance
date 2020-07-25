@@ -70,6 +70,11 @@ const StyledDisplay = styled(Display)`
 
 const StyledImage = styled(Img)`
   width: 100%;
+  height: 100vw;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    height: auto;
+  }
 `
 
 export default FullImageWithText

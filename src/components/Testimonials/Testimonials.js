@@ -62,6 +62,7 @@ const Testimonials = () => {
 
 const Container = styled.section`
   background-color: ${({ theme }) => theme.colors.blue};
+  overflow: hidden;
 
   .flickity-enabled {
     outline: none;
@@ -85,10 +86,17 @@ const Container = styled.section`
   .flickity-page-dots {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    margin: 25px auto 0;
-    width: 100%;
+    justify-content: center;
+    margin: 65px auto 0;
     max-width: 720px;
+    padding: 0 30px;
+    width: 100%;
+
+    @media screen and (min-width: ${({ theme }) => theme.screen.md1}) {
+      margin: 25px auto 0;
+      padding: 0;
+      justify-content: flex-end;
+    }
   }
 `
 
@@ -103,12 +111,24 @@ const Inner = styled.div`
 `
 
 const Slide = styled.div`
+  cursor: grab;
   width: 100%;
+  transition: all 300ms ease;
+  opacity: 0;
+
+  &.is-selected {
+    opacity: 1;
+  }
 `
 
 const SlideInner = styled.div`
   max-width: 720px;
   margin: 0 auto;
+  padding: 0 30px;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md1}) {
+    padding: 0;
+  }
 `
 
 const Top = styled.div`

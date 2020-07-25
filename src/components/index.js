@@ -1,4 +1,5 @@
 import Button from './Button'
+import Contact from './Contact'
 import Display from './Display'
 import Footer from './Footer'
 import FullImageWithText from './FullImageWithText'
@@ -17,6 +18,7 @@ import Text from './Text'
 
 export {
   Button,
+  Contact,
   Display,
   Footer,
   FullImageWithText,

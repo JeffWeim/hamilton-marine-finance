@@ -267,30 +267,32 @@ const Header = () => {
 }
 
 const Hamburger = styled(SvgIcon)`
-  transition: all 300ms ease;
-  pointer-events: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'none' : 'auto')};
+  cursor: pointer;
   opacity: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 0 : 1)};
+  pointer-events: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'none' : 'auto')};
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  transition: all 300ms ease;
 `
 
 const HeaderBase = styled.header`
+  background: white;
   position: sticky;
   top: 0;
   z-index: 2;
-  background: white;
 `
 
 const Close = styled(SvgIcon)`
-  transition: all 300ms ease;
-  pointer-events: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'auto' : 'none')};
+  cursor: pointer;
   opacity: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 1 : 0)};
+  pointer-events: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'auto' : 'none')};
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  transition: all 300ms ease;
 `
 
 const Inner = styled.div`
@@ -310,7 +312,7 @@ const Inner = styled.div`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
-    padding: 30px 0;
+    padding: 30px;
   }
 `
 
@@ -334,7 +336,7 @@ const LinkItem = styled.li`
     css`
       display: none;
 
-      @media screen and (min-width: ${({ theme }) => theme.screen.md1}) {
+      @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
         display: block;
       }
     `}
@@ -344,7 +346,7 @@ const LinkItem = styled.li`
     css`
       display: block;
 
-      @media screen and (min-width: ${({ theme }) => theme.screen.md1}) {
+      @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
         display: none;
       }
     `}
@@ -358,7 +360,7 @@ const Links = styled.ul`
   padding: 0;
   width: 80%;
 
-  @media screen and (min-width: ${({ theme }) => theme.screen.md1}) {
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
     justify-content: space-evenly;
   }
 `

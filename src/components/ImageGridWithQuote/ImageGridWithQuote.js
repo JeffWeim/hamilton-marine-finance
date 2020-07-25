@@ -1,7 +1,7 @@
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import background from '../../images/icon-with-text-background.png'
 
@@ -39,13 +39,17 @@ const ImageGridWithQuote = () => {
       <Container>
         <Images>
           <Left>
+            <StyledDisplay size="large" mobile>
+              About Hamilton <br /> Marine Finance.
+            </StyledDisplay>
+
             <StyledImageOne fluid={fluidOne} loading="lazy" />
 
             <StyledImageTwo fluid={fluidTwo} loading="lazy" />
           </Left>
 
           <Right>
-            <StyledDisplay size="large">
+            <StyledDisplay size="large" desktop>
               About Hamilton <br /> Marine Finance.
             </StyledDisplay>
 
@@ -83,18 +87,35 @@ const ImageGridWithQuote = () => {
   return <StaticQuery query={`${query}`} render={render} />
 }
 
-const Container = styled.section``
+const Container = styled.section`
+  padding: 50px 0 0;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    padding: 0;
+  }
+`
 
 const Copy = styled.div`
   align-items: flex-start;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  margin: -250px auto 0;
   max-width: 900px;
   position: relative;
   width: 100%;
   text-align: left;
+  padding: 0 30px;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    padding: 0 60px;
+    margin: -170px auto 0;
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
+    padding: 0;
+    margin: -250px auto 0;
+  }
 `
 
 const CopyLeft = styled.div`
@@ -103,7 +124,11 @@ const CopyLeft = styled.div`
 
 const CopyRight = styled.div`
   flex-basis: 40%;
-  padding: 65px 0 0;
+  padding: 30px 0 0;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
+    padding: 65px 0 0;
+  }
 `
 
 const Images = styled.div`
@@ -111,6 +136,21 @@ const Images = styled.div`
   flex-direction: column;
   position: relative;
   z-index: 1;
+
+  &:after {
+    content: '';
+    background-color: ${({ theme }) => theme.colors.blue};
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 950px;
+    width: 100%;
+    z-index: -1;
+
+    @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+      content: none;
+    }
+  }
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     flex-direction: row;
@@ -121,28 +161,49 @@ const Images = styled.div`
 `
 
 const Left = styled.div`
-  align-items: flex-end;
+  align-items: center;
   display: flex;
   flex-basis: 39%;
   flex-direction: column;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    align-items: flex-end;
+  }
 `
 
 const Right = styled.div`
   display: flex;
   flex-basis: calc(68% + 20px);
   flex-direction: column;
-  padding: 115px 0 0 20px;
+  padding: 20px 0 0 0;
+  margin: 0 0 70px;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    padding: 115px 0 0 20px;
+    margin: 0;
+  }
 `
 
 const StyledImageOne = styled(Img)`
+  width: calc(100% - 30px);
+  align-self: flex-end;
   margin: 0 0 20px;
   max-width: 510px;
-  width: 100%;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    align-self: initial;
+    width: 100%;
+  }
 `
 
 const StyledImageTwo = styled(Img)`
   max-width: 302px;
   width: 100%;
+  align-self: flex-start;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    align-self: initial;
+  }
 `
 
 const StyledImageThree = styled(Img)`
@@ -151,19 +212,64 @@ const StyledImageThree = styled(Img)`
 
 const StyledDisplay = styled(Display)`
   margin: 0 0 40px;
-  padding: 0 0 0 90px;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
+    padding: 0 0 0 90px;
+  }
+
+  ${({ mobile }) =>
+    mobile &&
+    css`
+      display: block;
+
+      @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+        display: none;
+      }
+    `}
+
+  ${({ desktop }) =>
+    desktop &&
+    css`
+      display: none;
+
+      @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+        display: block;
+      }
+    `}
 `
 
 const TextArea = styled.div`
   background-color: ${({ theme }) => theme.colors.blue};
-  margin: -210px 0 0;
+  margin: 0;
   padding: 0 0 50px;
   text-align: center;
+  position: relative;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    margin: -210px 0 0;
+  }
 `
 
 const Texture = styled.img`
   position: relative;
-  top: -200px;
+  max-width: 100%;
+  display: none;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    display: block;
+    padding: 0 100px;
+    top: -130px;
+    max-width: 100%;
+    height: 400px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: auto;
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1200px) {
+    height: 500px;
+  }
 `
 
 export default ImageGridWithQuote
