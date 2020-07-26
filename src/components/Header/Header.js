@@ -223,7 +223,9 @@ const Header = () => {
         <Links>
           {links.map(link => (
             <LinkItem key={link.text} desktop>
-              <Link href={link.url}>{link.text}</Link>
+              <Link offset="120" href={link.url}>
+                {link.text}
+              </Link>
             </LinkItem>
           ))}
 

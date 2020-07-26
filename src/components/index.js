@@ -12,6 +12,7 @@ import Image from './Image'
 import ImageGridWithQuote from './ImageGridWithQuote'
 import ImageTextStaggered from './ImageTextStaggered'
 import Layout from './Layout'
+import Loader from './Loader'
 import Seo from './Seo'
 import SvgIcon from './SvgIcon'
 import Testimonials from './Testimonials'
@@ -32,6 +33,7 @@ export {
   ImageGridWithQuote,
   ImageTextStaggered,
   Layout,
+  Loader,
   Seo,
   SvgIcon,
   Testimonials,

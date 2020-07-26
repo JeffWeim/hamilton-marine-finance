@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components'
 import NetlifyForm from 'react-netlify-form'
 
 import Display from '../Display'
+import Loader from '../Loader'
 import Text from '../Text'
 
 export const query = graphql`
@@ -45,15 +46,19 @@ const Contact = () => {
             <NetlifyForm name="Contact">
               {({ loading, error, success }) => (
                 <>
-                  {loading && <Centered>Sending...</Centered>}
+                  {loading && (
+                    <Centered left>
+                      <Loader />
+                    </Centered>
+                  )}
                   {error && (
                     <Centered left>
-                      <Text>Your information was not sent. Please try again later.</Text>
+                      <Text>Something went wrong. Please try again later.</Text>
                     </Centered>
                   )}
                   {success && (
                     <Centered left>
-                      <Text>Thank you for contacting us!</Text>
+                      <Text>Thank you for contacting us! We will get back to you very soon.</Text>
                     </Centered>
                   )}
                   {!loading && !success && (
