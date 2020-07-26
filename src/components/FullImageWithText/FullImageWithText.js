@@ -40,9 +40,7 @@ const FullImageWithText = () => {
         <Copy>
           <StyledDisplay color="white">Live life full throttle.</StyledDisplay>
 
-          <Button color="white" size="small">
-            Apply Online
-          </Button>
+          <Button color="white">Apply Online</Button>
         </Copy>
       </Container>
     )

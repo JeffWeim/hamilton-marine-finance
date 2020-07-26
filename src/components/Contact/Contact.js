@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components'
 import NetlifyForm from 'react-netlify-form'
 
 import Display from '../Display'
+import Text from '../Text'
 
 export const query = graphql`
   {
@@ -44,9 +45,17 @@ const Contact = () => {
             <NetlifyForm name="Contact">
               {({ loading, error, success }) => (
                 <>
-                  {loading && <div>Loading...</div>}
-                  {error && <div>Your information was not sent. Please try again later.</div>}
-                  {success && <div>Thank you for contacting us!</div>}
+                  {loading && <Centered>Sending...</Centered>}
+                  {error && (
+                    <Centered left>
+                      <Text>Your information was not sent. Please try again later.</Text>
+                    </Centered>
+                  )}
+                  {success && (
+                    <Centered left>
+                      <Text>Thank you for contacting us!</Text>
+                    </Centered>
+                  )}
                   {!loading && !success && (
                     <Fields>
                       <Input placeholder="NAME" type="text" name="Name" required />
@@ -81,6 +90,12 @@ const fieldStyles = css`
 
 const Container = styled.section`
   padding: 100px 0;
+`
+
+const Centered = styled.div`
+  display: flex;
+  justify-content: ${({ left }) => (left ? 'flex-start' : 'center')};
+  align-items: center;
 `
 
 const FormContainer = styled.div`

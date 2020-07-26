@@ -228,7 +228,9 @@ const Header = () => {
           ))}
 
           <LinkItem desktop>
-            <Button href="">Apply Online</Button>
+            <Button href="" size="large">
+              Apply Online
+            </Button>
           </LinkItem>
 
           <LinkItem mobile>

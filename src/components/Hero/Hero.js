@@ -75,7 +75,7 @@ const Hero = () => {
                 the finance process.
               </StyledText>
 
-              <Button size="small">Apply Online</Button>
+              <Button>Apply Online</Button>
             </CopyInner>
           </Copy>
 
@@ -122,8 +122,12 @@ const CopyInner = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
     float: right;
     margin-right: 80px;
+    padding: 50px 0 50px 50px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg1}) {
     max-width: 50%;
-    padding: 50px 0 50px;
+    padding: 50px 0 50px 0;
   }
 `
 
@@ -143,14 +147,22 @@ const StyledImg = styled(Img)`
   width: 100%;
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
-    margin-left: 32.5vw;
-    height: calc(45vw + 250px);
+    width: 420px;
+    height: 530px;
+    /* margin-left: 32.5vw; */
+    /* height: calc(45vw + 250px); */
+    /* height: calc(45vw + 50px); */
   }
 
-  @media screen and (min-width: 1450px) {
-    margin-left: 0;
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
+    width: 920px;
     height: auto;
   }
+
+  /* @media screen and (min-width: 1450px) {
+    margin-left: 0;
+    height: auto;
+  } */
 `
 
 const Inner = styled.div`

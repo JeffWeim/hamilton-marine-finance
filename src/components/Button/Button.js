@@ -46,13 +46,17 @@ const styles = css`
   ${({ size }) =>
     size === 'regular' &&
     css`
-      padding: 19px 25px;
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      max-height: 54px;
+      padding: 16px 25px;
     `}
 
   ${({ size }) =>
-    size === 'small' &&
+    size === 'large' &&
     css`
-      padding: 16px 25px;
+      padding: 19px 25px;
     `}
 `
 
@@ -78,7 +82,7 @@ Button.propTypes = {
   color: PropTypes.oneOf(['gradient', 'white']),
   href: PropTypes.string,
   scroll: PropTypes.bool,
-  size: PropTypes.oneOf(['regular', 'small']),
+  size: PropTypes.oneOf(['regular', 'large']),
 }
 
 export default Button

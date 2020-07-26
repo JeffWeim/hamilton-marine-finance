@@ -71,7 +71,7 @@ const ImageTextStaggered = () => {
         <Cta>
           <SectionTitle>More questions?</SectionTitle>
 
-          <Button size="small" href="#contact" scroll>
+          <Button href="#contact" scroll>
             Contact Us
           </Button>
         </Cta>
@@ -88,7 +88,7 @@ const Container = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0 30px;
+  padding: 0 30px 80px;
 
   @media (min-width: ${({ theme }) => theme.screen.md}) {
     padding: 0 30px 175px;
@@ -127,13 +127,17 @@ const Copy = styled.div`
       }
 
       @media (min-width: ${({ theme }) => theme.screen.lg}) {
-        padding: 0 0 0 5vw;
+        padding: 0 15px 0 80px;
       }
     `}
 `
 
 const Cta = styled.div`
-  margin: 80px 0 0;
+  margin: 20px 0 0;
+
+  @media (min-width: ${({ theme }) => theme.screen.md}) {
+    margin: 80px 0 0;
+  }
 `
 
 const Inner = styled.div`
@@ -176,6 +180,26 @@ const Row = styled.div`
   display: flex;
   flex-direction: column;
 
+  ${({ first }) =>
+    first &&
+    css`
+      margin: 0 0 60px;
+
+      @media (min-width: ${({ theme }) => theme.screen.md}) {
+        margin: 0;
+      }
+    `}
+
+  ${({ second }) =>
+    second &&
+    css`
+      flex-direction: column-reverse;
+
+      @media (min-width: ${({ theme }) => theme.screen.md}) {
+        flex-direction: column;
+      }
+    `}
+
   @media (min-width: ${({ theme }) => theme.screen.md}) {
     flex-direction: row;
     margin: 50px 0 0;
@@ -186,8 +210,9 @@ const Row = styled.div`
 const SectionTitle = styled.p`
   font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
   font-size: 30px;
+  letter-spacing: 1.2px;
   line-height: 80px;
-  letter-spacing: 1.2pxl;
+  margin: 0 0 10px;
 `
 
 const StyledDisplay = styled(Display)`

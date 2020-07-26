@@ -11,9 +11,7 @@ const Cta = () => {
       <Inner background={background}>
         <Text>Live life full throttle. Apply ONLINE.</Text>
 
-        <StyledButton size="small" color="white">
-          Apply Now
-        </StyledButton>
+        <StyledButton color="white">Apply Now</StyledButton>
       </Inner>
     </Container>
   )

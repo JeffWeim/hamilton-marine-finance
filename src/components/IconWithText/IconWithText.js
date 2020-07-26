@@ -82,15 +82,14 @@ const IconWithText = () => {
 }
 
 const Buttons = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
   position: relative;
-  flex-direction: column;
-  top: 35px;
+  text-align: center;
+  top: 15px;
+  margin: 20px 0 0;
 
   @media (min-width: ${({ theme }) => theme.screen.md}) {
     flex-direction: row;
+    margin: 40px 0 0;
   }
 `
 

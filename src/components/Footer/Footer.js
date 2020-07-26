@@ -311,13 +311,13 @@ const Link = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     align-items: flex-start;
-    margin: 0 0 30px;
     max-width: 100%;
     padding: 30px 20px 30px 50px;
     width: 280px;
 
-    &:last-child {
-      margin: 0;
+    + div,
+    + a {
+      margin: 0 0 30px;
     }
   }
 `
@@ -367,7 +367,6 @@ const StyledIcon = styled(SvgIcon)`
 
       @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
         left: -35px;
-        top: initial;
       }
     `}
 
@@ -378,7 +377,6 @@ const StyledIcon = styled(SvgIcon)`
 
       @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
         left: -30px;
-        top: initial;
       }
     `}
 
@@ -389,7 +387,6 @@ const StyledIcon = styled(SvgIcon)`
 
       @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
         left: -20px;
-        top: initial;
       }
     `}
 `
