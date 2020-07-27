@@ -60,6 +60,7 @@ const Copy = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  padding: 0 30px;
 `
 
 const StyledDisplay = styled(Display)`

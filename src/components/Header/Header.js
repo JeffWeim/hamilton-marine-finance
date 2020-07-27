@@ -427,7 +427,6 @@ const MobileMenu = styled(motion.div)`
 
 const StyledButton = styled(Button)`
   width: 100%;
-  max-width: 275px;
   margin: 40px auto 0;
 `
 

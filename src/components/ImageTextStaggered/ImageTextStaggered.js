@@ -134,9 +134,11 @@ const Copy = styled.div`
 
 const Cta = styled.div`
   margin: 20px 0 0;
+  width: 100%;
 
   @media (min-width: ${({ theme }) => theme.screen.md}) {
     margin: 80px 0 0;
+    width: auto;
   }
 `
 

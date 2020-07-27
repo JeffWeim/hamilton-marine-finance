@@ -75,7 +75,7 @@ const Hero = () => {
                 the finance process.
               </StyledText>
 
-              <Button>Apply Online</Button>
+              <Button fullWidthMobile={false}>Apply Online</Button>
             </CopyInner>
           </Copy>
 

@@ -4,18 +4,30 @@ import styled, { css } from 'styled-components'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Button = props => {
-  const { className, children, color, href, size, scroll } = props
+  const { className, children, color, fullWidthMobile, href, size, scroll } = props
 
   if (scroll) {
     return (
-      <ScrollBase className={className} color={color} href={href} size={size}>
+      <ScrollBase
+        className={className}
+        color={color}
+        fullWidthMobile={fullWidthMobile}
+        href={href}
+        size={size}
+      >
         {children}
       </ScrollBase>
     )
   }
 
   return (
-    <Base className={className} color={color} href={href} size={size}>
+    <Base
+      className={className}
+      color={color}
+      fullWidthMobile={fullWidthMobile}
+      href={href}
+      size={size}
+    >
       {children}
     </Base>
   )
@@ -27,6 +39,18 @@ const styles = css`
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
+
+
+  ${({ fullWidthMobile }) =>
+    fullWidthMobile &&
+    css`
+      width: 100%;
+
+      @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+        width: auto;
+      }
+    `}
+
 
   ${({ color }) =>
     color === 'gradient' &&
@@ -71,6 +95,7 @@ const Base = styled.a`
 Button.defaultProps = {
   className: '',
   color: 'gradient',
+  fullWidthMobile: true,
   href: '',
   scroll: false,
   size: 'regular',
@@ -80,6 +105,7 @@ Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   className: PropTypes.string,
   color: PropTypes.oneOf(['gradient', 'white']),
+  fullWidthMobile: PropTypes.bool,
   href: PropTypes.string,
   scroll: PropTypes.bool,
   size: PropTypes.oneOf(['regular', 'large']),
