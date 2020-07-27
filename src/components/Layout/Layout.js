@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 import { Footer, GlobalStylesheet, Header, Seo } from 'Components'
 
@@ -19,16 +20,18 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStylesheet />
+    <ParallaxProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStylesheet />
 
-      <Seo title={data.site.siteMetadata.title} />
+        <Seo title={data.site.siteMetadata.title} />
 
-      <Header />
-      <main>{children}</main>
+        <Header />
+        <main>{children}</main>
 
-      <Footer />
-    </ThemeProvider>
+        <Footer />
+      </ThemeProvider>
+    </ParallaxProvider>
   )
 }
 

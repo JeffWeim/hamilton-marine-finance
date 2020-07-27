@@ -29,6 +29,8 @@
     "react-flickity-component": "^3.5.0",
     "react-helmet": "^6.1.0",
     "react-netlify-form": "^2.1.5",
+    "react-scroll-parallax": "^2.3.4",
+    "react-use": "^15.3.3",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

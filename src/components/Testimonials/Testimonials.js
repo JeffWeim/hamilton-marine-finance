@@ -1,6 +1,6 @@
 import { StaticQuery, graphql } from 'gatsby'
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Flickity from 'react-flickity-component'
 
 import Text from '../Text'
@@ -38,10 +38,10 @@ const Testimonials = () => {
               <Slide key={index.toString()}>
                 <SlideInner>
                   <Top>
-                    <SvgIcon type="quotes" />
+                    <Quotes type="quotes" />
 
                     <TopCopy>
-                      <Title>{testimonial.person}</Title>
+                      <Title first>{testimonial.person}</Title>
                       <Title>{testimonial.title}</Title>
                     </TopCopy>
                   </Top>
@@ -131,6 +131,12 @@ const SlideInner = styled.div`
   }
 `
 
+const Quotes = styled(SvgIcon)`
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    margin: 0 20px 0 0;
+  }
+`
+
 const Top = styled.div`
   display: flex;
   flex-direction: row;
@@ -140,13 +146,31 @@ const Top = styled.div`
   right: 70px;
 `
 
-const TopCopy = styled.div``
+const TopCopy = styled.div`
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    left: 35vw;
+    width: 100%;
+    top: 60px;
+  }
+`
 
 const Title = styled.p`
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-size: 40px;
   line-height: 40px;
   letter-spacing: 1px;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    margin: 0 0 10px;
+
+    ${({ first }) =>
+      first &&
+      css`
+        margin: 35px 0 10px;
+      `}
+  }
 `
 
 export default Testimonials

@@ -2,6 +2,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import React from 'react'
 import styled, { css } from 'styled-components'
+// import { Parallax } from 'react-scroll-parallax'
 
 import background from '../../images/icon-with-text-background.png'
 

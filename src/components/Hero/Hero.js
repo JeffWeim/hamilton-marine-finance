@@ -133,8 +133,8 @@ const CopyInner = styled.div`
 
 const Line = styled.hr`
   background: ${({ theme }) => theme.colors.blue};
-  height: 2px;
-  margin: 18px 0;
+  height: 3px;
+  margin: 20px 0 15px;
   width: 80px;
 `
 

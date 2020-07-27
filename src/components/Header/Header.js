@@ -1,13 +1,25 @@
-import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useWindowScroll } from 'react-use'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import React, { useState, useEffect } from 'react'
+import styled, { css } from 'styled-components'
 
 import Button from '../Button'
 import SvgIcon from '../SvgIcon'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  // eslint-disable-next-line
+  const { x, y } = useWindowScroll()
+
+  useEffect(() => {
+    if (y >= 10) {
+      setIsScrolled(true)
+    } else {
+      setIsScrolled(false)
+    }
+  }, [y])
 
   const links = [
     {
@@ -29,8 +41,8 @@ const Header = () => {
   ]
 
   return (
-    <HeaderBase>
-      <Inner>
+    <HeaderBase isScrolled={isScrolled}>
+      <Inner isScrolled={isScrolled}>
         <svg
           width="161"
           height="60"
@@ -253,11 +265,12 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <MobileMenu
-            key="mobile-menu"
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 120 }}
+            animate={{ opacity: 1, y: isScrolled ? 80 : 120 }}
             exit={{ opacity: 0, y: 0 }}
+            initial={{ opacity: 0, y: 0 }}
+            key="mobile-menu"
             transition={{ ease: 'easeOut', duration: 0.3 }}
+            isScrolled={isScrolled}
           >
             {links.map(link => (
               <MobileLink offset="100" href={link.url} onClick={() => setIsMobileMenuOpen(false)}>
@@ -286,6 +299,7 @@ const Hamburger = styled(SvgIcon)`
 
 const HeaderBase = styled.header`
   background: white;
+  box-shadow: ${({ isScrolled }) => (isScrolled ? '0px -6px 14px 2px rgb(0 0 0 / .5)' : '')};
   position: sticky;
   top: 0;
   z-index: 2;
@@ -309,17 +323,18 @@ const Inner = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 30px;
+  padding: ${({ isScrolled }) => (isScrolled ? '10px 30px' : '30px')};
   position: relative;
   width: 100%;
   z-index: 60;
+  transition: all 300ms ease;
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
-    padding: 30px 60px;
+    padding: ${({ isScrolled }) => (isScrolled ? '10px 60px' : '30px 60px')};
   }
 
   @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
-    padding: 30px;
+    padding: ${({ isScrolled }) => (isScrolled ? '10px 30px' : '30px')};
   }
 `
 
@@ -385,7 +400,7 @@ const MobileMenu = styled(motion.div)`
   background-color: ${({ theme }) => theme.colors.tan};
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 120px);
+  height: ${({ isScrolled }) => (isScrolled ? 'calc(100vh - 80px)' : 'calc(100vh - 120px)')};
   justify-content: center;
   padding: 0 40px;
   position: fixed;
