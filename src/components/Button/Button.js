@@ -15,7 +15,7 @@ const Button = props => {
         href={href}
         size={size}
       >
-        {children}
+        <span>{children}</span>
       </ScrollBase>
     )
   }
@@ -28,7 +28,7 @@ const Button = props => {
       href={href}
       size={size}
     >
-      {children}
+      <span>{children}</span>
     </Base>
   )
 }
@@ -58,6 +58,45 @@ const styles = css`
       background: ${({ theme }) => theme.colors.blue};
       background: linear-gradient(90deg, #1f2f97 0%, #1ca6eb 100%);
       color: ${({ theme }) => theme.colors.white};
+      transition: all 300ms ease;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      pointer-events: auto;
+
+      span {
+        position: relative;
+        z-index: 1;
+      }
+
+      &:hover,
+      &:focus {
+        &:before {
+          transform: translateX(-74%);
+        }
+      }
+
+      &:before {
+        background: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          from(#1f2f97),
+          color-stop(33%, #1ca6eb),
+          color-stop(66%, #1ca6eb),
+          to(#1f2f97)
+        );
+        background: linear-gradient(to right, #1f2f97 0%, #1ca6eb 33%, #1ca6eb 66%, #1f2f97 100%);
+        content: '';
+        display: block;
+        width: 400%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-out;
+        z-index: 0;
+      }
     `}
 
   ${({ color }) =>
@@ -65,6 +104,45 @@ const styles = css`
     css`
       background: ${({ theme }) => theme.colors.white};
       color: ${({ theme }) => theme.colors.blue};
+      position: relative;
+      overflow: hidden;
+      transition: all 300ms ease;
+
+      span {
+        position: relative;
+        z-index: 1;
+      }
+
+      &:hover,
+      &:focus {
+        color: ${({ theme }) => theme.colors.white};
+
+        &:before {
+          transform: translateX(-74%);
+        }
+      }
+
+      &:before {
+        background: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          from(#fff),
+          color-stop(33%, #fff),
+          color-stop(66%, #1f2f97),
+          to(#1ca6eb)
+        );
+        background: linear-gradient(to right, #fff 0%, #fff 33%, #1f2f97 66%, #1ca6eb 100%);
+        content: '';
+        display: block;
+        width: 400%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-out;
+        z-index: 0;
+      }
     `}
 
   ${({ size }) =>
@@ -80,7 +158,7 @@ const styles = css`
   ${({ size }) =>
     size === 'large' &&
     css`
-      padding: 19px 25px;
+      padding: 12.5px 25px;
     `}
 `
 

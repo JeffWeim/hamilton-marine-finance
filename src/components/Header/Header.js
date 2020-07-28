@@ -375,6 +375,7 @@ const LinkItem = styled.li`
 `
 
 const Links = styled.ul`
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

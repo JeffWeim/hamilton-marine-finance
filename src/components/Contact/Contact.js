@@ -67,7 +67,9 @@ const Contact = () => {
                       <Input placeholder="PHONE" type="tel" name="Phone" required />
                       <Input placeholder="EMAIL" type="email" name="Email" required />
                       <TextArea placeholder="QUESTION" name="Question" required rows="10" />
-                      <Submit type="submit">Submit</Submit>
+                      <Submit type="submit">
+                        <span>Submit</span>
+                      </Submit>
                     </Fields>
                   )}
                 </>
@@ -168,9 +170,45 @@ const Submit = styled.button`
   text-decoration: none;
   text-transform: uppercase;
   width: 100%;
+  overflow: hidden;
+  position: relative;
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     width: auto;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus {
+    &:before {
+      transform: translateX(-74%);
+    }
+  }
+
+  &:before {
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#1f2f97),
+      color-stop(33%, #1ca6eb),
+      color-stop(66%, #1ca6eb),
+      to(#1f2f97)
+    );
+    background: linear-gradient(to right, #1f2f97 0%, #1ca6eb 33%, #1ca6eb 66%, #1f2f97 100%);
+    content: '';
+    display: block;
+    width: 400%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-out;
+    z-index: 0;
   }
 `
 
