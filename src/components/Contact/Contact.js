@@ -87,6 +87,7 @@ const Contact = () => {
 const fieldStyles = css`
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.black};
+  font-family: ${({ theme }) => theme.fonts.OpenSansRegular};
   padding: 10px 15px;
 
   ::placeholder {
@@ -127,13 +128,13 @@ const Fields = styled.div`
 const Inner = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 80px 30px 0 0;
   position: relative;
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     flex-direction: row;
     margin: 0 auto;
     max-width: 1480px;
-    padding: 80px 0 0 0;
     width: 100%;
   }
 

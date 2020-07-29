@@ -18,6 +18,17 @@ const SvgIcon = props => {
       className={className}
       onClick={onClick}
     >
+      {theme?.icons[type]?.circle &&
+        theme?.icons[type]?.circle.map((svgCircle, index) => (
+          <circle
+            cx={svgCircle?.cx}
+            cy={svgCircle?.cy}
+            fill={fill || svgCircle.fill}
+            key={`${type + index}`}
+            r={svgCircle?.r}
+          />
+        ))}
+
       {theme.icons[type].path.map((svgPath, index) => (
         <path
           d={svgPath.d}

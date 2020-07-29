@@ -39,7 +39,7 @@ Text.defaultProps = {
 Text.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.array]),
   className: PropTypes.string,
-  color: PropTypes.oneOf(['black', 'white']),
+  color: PropTypes.string,
   size: PropTypes.oneOf(['regular', 'small']),
 }
 

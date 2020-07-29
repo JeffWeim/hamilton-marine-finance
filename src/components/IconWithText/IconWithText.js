@@ -21,8 +21,7 @@ const IconWithText = () => {
             <StyleSvgIcon type="clipboard" />
 
             <StyledText color="white" size="small">
-              You&apos;ll fill out a credit application based on your{' '}
-              <Strong>credit score & history</Strong>.
+              Fill out a credit application based on your <Strong>credit score & history</Strong>.
             </StyledText>
           </IconItem>
 
@@ -90,6 +89,7 @@ const Buttons = styled.div`
   @media (min-width: ${({ theme }) => theme.screen.md}) {
     flex-direction: row;
     margin: 40px 0 0;
+    top: 25px;
   }
 `
 
@@ -193,7 +193,7 @@ const StyledButton = styled(Button)`
     css`
       margin: 0 0 30px;
 
-      @media (min-width: ${({ theme }) => theme.screen.md}) {
+      @media (min-width: ${({ theme }) => theme.screen.lg}) {
         margin: 0 30px 0 0;
       }
     `}

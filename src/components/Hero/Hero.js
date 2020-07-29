@@ -140,6 +140,7 @@ const Line = styled.hr`
 
 const StyledText = styled(Text)`
   margin: 0 0 60px;
+  line-height: 22px;
 `
 
 const StyledImg = styled(Img)`
@@ -147,22 +148,18 @@ const StyledImg = styled(Img)`
   width: 100%;
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
-    width: 420px;
-    height: 530px;
-    /* margin-left: 32.5vw; */
-    /* height: calc(45vw + 250px); */
-    /* height: calc(45vw + 50px); */
+    max-width: 520px;
+    /* height: 530px; */
+    height: calc(530px + 12vw);
   }
 
   @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
     width: 920px;
-    height: auto;
+    max-width: 100%;
+    /* height: auto; */
+    max-height: 700px;
+    height: calc(530px + 10.75vw);
   }
-
-  /* @media screen and (min-width: 1450px) {
-    margin-left: 0;
-    height: auto;
-  } */
 `
 
 const Inner = styled.div`

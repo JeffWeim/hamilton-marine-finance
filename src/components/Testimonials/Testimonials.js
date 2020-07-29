@@ -42,11 +42,11 @@ const Testimonials = () => {
 
                     <TopCopy>
                       <Title first>{testimonial.person}</Title>
-                      <Title>{testimonial.title}</Title>
+                      <Title second>{testimonial.title}</Title>
                     </TopCopy>
                   </Top>
                   <Copy>
-                    <Text>{testimonial.quote}</Text>
+                    <Text color="#1F2F97">{testimonial.quote}</Text>
                   </Copy>
                 </SlideInner>
               </Slide>
@@ -171,6 +171,12 @@ const Title = styled.p`
         margin: 35px 0 10px;
       `}
   }
+
+  ${({ second }) =>
+    second &&
+    css`
+      font-size: 20px;
+    `}
 `
 
 export default Testimonials

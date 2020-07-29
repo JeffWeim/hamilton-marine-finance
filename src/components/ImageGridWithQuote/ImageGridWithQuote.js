@@ -115,7 +115,7 @@ const Copy = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
     padding: 0;
-    margin: -250px auto 0;
+    margin: -170px auto 0;
   }
 `
 
