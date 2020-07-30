@@ -50,7 +50,7 @@ const StyledButton = styled(Button)`
 
 const Text = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-family: ${({ theme }) => theme.fonts.ProximaSemiboldItalic};
   font-size: 30px;
   letter-spacing: 1.5px;
   line-height: 30px;

@@ -9,10 +9,10 @@ export const theme = {
     tan: '#F6F7F2',
   },
   fonts: {
-    OpenSansBold: 'Open Sans Bold, sans-serif',
-    OpenSansSemibold: 'Open Sans Semibold, sans-serif',
-    OpenSansRegular: 'Open Sans Regular, sans-serif',
-    OpenSansSemiboldItalic: 'Open Sans Semibold Italic, sans-serif',
+    ProximaBold: '"Proxima Nova Bold", sans-serif',
+    ProximaSemibold: '"Proxima Nova Semibold, sans-serif',
+    ProximaRegular: '"Proxima Nova Regular", sans-serif',
+    ProximaSemiboldItalic: '"Proxima Nova Semibold Italic", sans-serif',
   },
   screen: {
     xxs: '320px',

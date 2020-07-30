@@ -87,12 +87,12 @@ const Contact = () => {
 const fieldStyles = css`
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.black};
-  font-family: ${({ theme }) => theme.fonts.OpenSansRegular};
+  font-family: ${({ theme }) => theme.fonts.ProximaRegular};
   padding: 10px 15px;
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.black};
-    font-family: ${({ theme }) => theme.fonts.OpenSansRegular};
+    font-family: ${({ theme }) => theme.fonts.ProximaRegular};
   }
 `
 
@@ -164,7 +164,7 @@ const Submit = styled.button`
   border: none;
   color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
-  font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-family: ${({ theme }) => theme.fonts.ProximaSemiboldItalic};
   margin: 55px 0 0;
   padding: 16px 25px;
   text-align: center;

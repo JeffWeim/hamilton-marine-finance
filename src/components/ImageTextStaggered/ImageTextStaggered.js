@@ -210,7 +210,7 @@ const Row = styled.div`
 `
 
 const SectionTitle = styled.p`
-  font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-family: ${({ theme }) => theme.fonts.ProximaSemiboldItalic};
   font-size: 30px;
   letter-spacing: 1.2px;
   line-height: 80px;

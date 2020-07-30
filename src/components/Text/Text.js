@@ -15,7 +15,7 @@ const Text = props => {
 
 const TextBase = styled.p`
   color: ${({ color }) => color};
-  font-family: ${({ theme }) => theme.fonts.OpenSansRegular};
+  font-family: ${({ theme }) => theme.fonts.ProximaRegular};
   line-height: ${({ theme, size }) => theme.fontStyles.text[size].lineHeight};
   ${({ theme, size }) =>
     fluidRange(

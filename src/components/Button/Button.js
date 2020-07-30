@@ -35,7 +35,7 @@ const Button = props => {
 
 const styles = css`
   border-radius: 35px;
-  font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-family: ${({ theme }) => theme.fonts.ProximaSemiboldItalic};
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;

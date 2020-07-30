@@ -9,6 +9,6 @@ export default createGlobalStyle`
   }
 
   html {
-    font-family: ${({ theme }) => theme.fonts.OpenSansRegular};
+    font-family: ${({ theme }) => theme.fonts.ProximaRegular};
   }
 `

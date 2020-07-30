@@ -159,7 +159,7 @@ const Logo = styled(Image)`
 
 const Link = styled(AnchorLink)`
   color: ${({ theme }) => theme.colors.blue};
-  font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-family: ${({ theme }) => theme.fonts.ProximaSemiboldItalic};
   text-decoration: none;
   text-transform: uppercase;
 `
@@ -209,7 +209,7 @@ const Links = styled.ul`
 
 const MobileLink = styled(AnchorLink)`
   color: ${({ theme }) => theme.colors.blue};
-  font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-family: ${({ theme }) => theme.fonts.ProximaSemiboldItalic};
   font-size: 30px;
   letter-spacing: 0.6px;
   line-height: 60px;

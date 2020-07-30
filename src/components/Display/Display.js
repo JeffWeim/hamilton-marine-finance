@@ -15,7 +15,7 @@ const Display = props => {
 
 const DisplayTag = styled.h1`
   color: ${({ color }) => color};
-  font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-family: ${({ theme }) => theme.fonts.ProximaSemiboldItalic};
   line-height: ${({ theme, size }) => theme.fontStyles.displays[size].lineHeight};
   ${({ theme, size }) =>
     fluidRange(

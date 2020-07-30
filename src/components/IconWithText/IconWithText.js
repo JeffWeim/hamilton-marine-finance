@@ -178,7 +178,7 @@ const Mobile = styled.span`
 `
 
 const Strong = styled.strong`
-  font-family: ${({ theme }) => theme.fonts.OpenSansBold};
+  font-family: ${({ theme }) => theme.fonts.ProximaBold};
 `
 
 const StyledButton = styled(Button)`

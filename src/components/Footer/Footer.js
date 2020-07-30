@@ -168,7 +168,7 @@ const LogoContainer = styled.div`
 `
 
 const Small = styled.p`
-  font-family: ${({ theme }) => theme.fonts.OpenSansRegular};
+  font-family: ${({ theme }) => theme.fonts.ProximaRegular};
   font-size: 13px;
   line-height: 20px;
   letter-spacing: 0.325px;

@@ -157,7 +157,7 @@ const TopCopy = styled.div`
 
 const Title = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: ${({ theme }) => theme.fonts.OpenSansSemiboldItalic};
+  font-family: ${({ theme }) => theme.fonts.ProximaSemiboldItalic};
   font-size: 40px;
   line-height: 40px;
   letter-spacing: 1px;
