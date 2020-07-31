@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Button = props => {
-  const { className, children, color, fullWidthMobile, href, size, scroll } = props
+  const { className, children, color, fullWidthMobile, href, size, scroll, target } = props
 
   if (scroll) {
     return (
@@ -14,6 +14,7 @@ const Button = props => {
         fullWidthMobile={fullWidthMobile}
         href={href}
         size={size}
+        target={target}
       >
         <span>{children}</span>
       </ScrollBase>
@@ -27,6 +28,7 @@ const Button = props => {
       fullWidthMobile={fullWidthMobile}
       href={href}
       size={size}
+      target={target}
     >
       <span>{children}</span>
     </Base>
@@ -177,6 +179,7 @@ Button.defaultProps = {
   href: '',
   scroll: false,
   size: 'regular',
+  target: '',
 }
 
 Button.propTypes = {
@@ -187,6 +190,7 @@ Button.propTypes = {
   href: PropTypes.string,
   scroll: PropTypes.bool,
   size: PropTypes.oneOf(['regular', 'large']),
+  target: PropTypes.string,
 }
 
 export default Button

@@ -1,8 +1,9 @@
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import NetlifyForm from 'react-netlify-form'
+import Rellax from 'rellax'
 
 import Display from '../Display'
 import Loader from '../Loader'
@@ -28,6 +29,13 @@ export const query = graphql`
 `
 
 const Contact = () => {
+  useEffect(() => {
+    const rellax = new Rellax('.rellax', {
+      speed: -1,
+      center: true,
+    })
+  }, [])
+
   const render = data => {
     const {
       datoCmsContact: {
@@ -76,6 +84,8 @@ const Contact = () => {
               )}
             </NetlifyForm>
           </FormContainer>
+
+          <Gray className="rellax" />
         </Inner>
       </Container>
     )
@@ -125,6 +135,22 @@ const Fields = styled.div`
   }
 `
 
+const Gray = styled.div`
+  background-color: ${({ theme }) => theme.colors.tan};
+  max-width: 575px;
+  width: 100%;
+  height: 660px;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    top: 0;
+  }
+`
+
 const Inner = styled.div`
   display: flex;
   flex-direction: column;
@@ -136,23 +162,6 @@ const Inner = styled.div`
     margin: 0 auto;
     max-width: 1480px;
     width: 100%;
-  }
-
-  &:after {
-    content: '';
-    background-color: ${({ theme }) => theme.colors.tan};
-    max-width: 575px;
-    width: 100%;
-    height: 660px;
-    position: absolute;
-    left: 50%;
-    top: 30%;
-    transform: translateX(-50%);
-    z-index: -1;
-
-    @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
-      top: 0;
-    }
   }
 `
 

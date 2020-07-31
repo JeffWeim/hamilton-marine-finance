@@ -50,7 +50,12 @@ const IconWithText = () => {
           </CenteredText>
 
           <Buttons>
-            <StyledButton first color="white">
+            <StyledButton
+              first
+              color="white"
+              href="https://www.700dealer.com/QuickQualify/a624ac786dde40a897126561f9205ae3-201827"
+              target="_blank"
+            >
               Apply Online
             </StyledButton>
             <StyledButton color="white" href="#contact" scroll>
@@ -68,7 +73,12 @@ const IconWithText = () => {
         </CenteredText>
 
         <Buttons>
-          <StyledButton first color="white">
+          <StyledButton
+            first
+            color="white"
+            href="https://www.700dealer.com/QuickQualify/a624ac786dde40a897126561f9205ae3-201827"
+            target="_blank"
+          >
             Apply Online
           </StyledButton>
           <StyledButton color="white" href="#contact" scroll>
@@ -96,6 +106,8 @@ const Buttons = styled.div`
 const Container = styled.section`
   background-color: ${({ theme }) => theme.colors.blue};
   padding: 150px 30px;
+  position: relative;
+  z-index: 2;
 
   @media (min-width: ${({ theme }) => theme.screen.md}) {
     padding: 150px 55px;
@@ -157,6 +169,7 @@ const IconItem = styled.li`
 
 const Inner = styled.div`
   background-image: url(${background});
+  background-size: cover;
   margin: 0 auto;
   max-width: 1170px;
   position: relative;

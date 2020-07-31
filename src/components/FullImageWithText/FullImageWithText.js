@@ -1,13 +1,14 @@
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import simpleParallax from 'simple-parallax-js'
 
 import Display from '../Display'
 import Button from '../Button'
 
 export const query = graphql`
-  query MyQuery {
+  {
     datoCmsFullImage {
       image {
         fluid(imgixParams: { q: 90, w: "1440", h: "730" }, maxWidth: 1400) {
@@ -26,6 +27,11 @@ export const query = graphql`
 `
 
 const FullImageWithText = () => {
+  useEffect(() => {
+    const image = document.getElementsByClassName('image')
+    new simpleParallax(image)
+  }, [])
+
   const render = data => {
     const {
       datoCmsFullImage: {
@@ -35,12 +41,18 @@ const FullImageWithText = () => {
 
     return (
       <Container>
-        <StyledImage fluid={fluid} loading="lazy" />
+        <StyledImage className="image" fluid={fluid} loading="lazy" />
 
         <Copy>
           <StyledDisplay color="white">Live life full throttle.</StyledDisplay>
 
-          <Button color="white">Apply Online</Button>
+          <Button
+            color="white"
+            href="https://www.700dealer.com/QuickQualify/a624ac786dde40a897126561f9205ae3-201827"
+            target="_blank"
+          >
+            Apply Online
+          </Button>
         </Copy>
       </Container>
     )

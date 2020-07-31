@@ -44,7 +44,11 @@ const Header = () => {
           ))}
 
           <LinkItem desktop>
-            <Button href="" size="large">
+            <Button
+              href="https://www.700dealer.com/QuickQualify/a624ac786dde40a897126561f9205ae3-201827"
+              size="large"
+              target="_blank"
+            >
               Apply Online
             </Button>
           </LinkItem>
@@ -79,7 +83,12 @@ const Header = () => {
               </MobileLink>
             ))}
 
-            <StyledButton>Apply Online</StyledButton>
+            <StyledButton
+              href="https://www.700dealer.com/QuickQualify/a624ac786dde40a897126561f9205ae3-201827"
+              target="_blank"
+            >
+              Apply Online
+            </StyledButton>
           </MobileMenu>
         )}
       </AnimatePresence>

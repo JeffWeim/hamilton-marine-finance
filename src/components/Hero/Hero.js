@@ -1,6 +1,7 @@
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import React from 'react'
+import React, { useEffect } from 'react'
+import simpleParallax from 'simple-parallax-js'
 import styled from 'styled-components'
 
 import Button from '../Button'
@@ -43,6 +44,11 @@ export const query = graphql`
 `
 
 const Hero = () => {
+  useEffect(() => {
+    const image = document.getElementsByClassName('image')
+    new simpleParallax(image)
+  }, [])
+
   const render = data => {
     const {
       desktop: {
@@ -75,11 +81,17 @@ const Hero = () => {
                 the finance process.
               </StyledText>
 
-              <Button fullWidthMobile={false}>Apply Online</Button>
+              <Button
+                fullWidthMobile={false}
+                href="https://www.700dealer.com/QuickQualify/a624ac786dde40a897126561f9205ae3-201827"
+                target="_blank"
+              >
+                Apply Online
+              </Button>
             </CopyInner>
           </Copy>
 
-          <StyledImg alt={alt} fluid={heroSrc} loading="lazy" />
+          <StyledImg className="image" alt={alt} fluid={heroSrc} loading="lazy" />
         </Inner>
       </Container>
     )

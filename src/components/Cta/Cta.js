@@ -11,7 +11,13 @@ const Cta = () => {
       <Inner background={background}>
         <Text>Live life full throttle. Apply ONLINE.</Text>
 
-        <StyledButton color="white">Apply Now</StyledButton>
+        <StyledButton
+          color="white"
+          href="https://www.700dealer.com/QuickQualify/a624ac786dde40a897126561f9205ae3-201827"
+          target="_blank"
+        >
+          Apply Now
+        </StyledButton>
       </Inner>
     </Container>
   )

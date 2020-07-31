@@ -1,6 +1,7 @@
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import React from 'react'
+import React, { useEffect } from 'react'
+import Rellax from 'rellax'
 import styled, { css } from 'styled-components'
 
 import Button from '../Button'
@@ -27,6 +28,13 @@ export const query = graphql`
 `
 
 const ImageTextStaggered = () => {
+  useEffect(() => {
+    const rellax = new Rellax('.rellax2', {
+      speed: 5,
+      center: true,
+    })
+  }, [])
+
   const render = data => {
     const {
       datoCmsStaggeredImage: {
@@ -66,6 +74,8 @@ const ImageTextStaggered = () => {
               <StyledImage second fluid={fluidImageTwo} loading="lazy" />
             </Row>
           </Rows>
+
+          <Gray className="rellax2" />
         </Inner>
 
         <Cta>
@@ -135,6 +145,8 @@ const Copy = styled.div`
 const Cta = styled.div`
   margin: 20px 0 0;
   width: 100%;
+  position: relative;
+  z-index: 2;
 
   @media (min-width: ${({ theme }) => theme.screen.md}) {
     margin: 80px 0 0;
@@ -153,21 +165,19 @@ const Inner = styled.div`
   @media (min-width: ${({ theme }) => theme.screen.md}) {
     padding: 0;
   }
+`
 
-  &:after {
-    background-color: ${({ theme }) => theme.colors.tan};
-    content: '';
-    height: calc(100% - 80px);
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(100% - 0px);
-    z-index: -1;
+const Gray = styled.div`
+  background-color: ${({ theme }) => theme.colors.tan};
+  height: calc(100% - 80px);
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: calc(100% - 0px);
+  z-index: -1;
 
-    @media (min-width: ${({ theme }) => theme.screen.md}) {
-      width: calc(100% - 80px);
-    }
+  @media (min-width: ${({ theme }) => theme.screen.md}) {
+    width: calc(100% - 80px);
   }
 `
 
