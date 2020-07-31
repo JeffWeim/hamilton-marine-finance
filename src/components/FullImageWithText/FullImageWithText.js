@@ -2,10 +2,11 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import simpleParallax from 'simple-parallax-js'
 
 import Display from '../Display'
 import Button from '../Button'
+
+const simpleParallax = typeof window !== `undefined` ? require('simple-parallax-js') : null
 
 export const query = graphql`
   {
