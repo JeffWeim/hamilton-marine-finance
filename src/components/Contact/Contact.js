@@ -30,6 +30,7 @@ export const query = graphql`
 
 const Contact = () => {
   useEffect(() => {
+    // eslint-disable-next-line
     const rellax = new Rellax('.rellax', {
       speed: -1,
       center: true,
@@ -154,7 +155,7 @@ const Gray = styled.div`
 const Inner = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 80px 30px 0 0;
+  padding: 80px 0 0 0;
   position: relative;
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
@@ -232,7 +233,13 @@ const StyledImage = styled(Img)`
 `
 
 const StyledDisplay = styled(Display)`
-  margin: 0 0 30px;
+  margin: 15px 0 30px;
+  text-align: center;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    margin: 0 0 30px;
+    text-align: left;
+  }
 `
 
 const Input = styled.input`

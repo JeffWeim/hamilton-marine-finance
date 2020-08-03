@@ -29,6 +29,7 @@ export const query = graphql`
 
 const ImageTextStaggered = () => {
   useEffect(() => {
+    // eslint-disable-next-line
     const rellax = new Rellax('.rellax2', {
       speed: 5,
       center: true,
@@ -178,6 +179,7 @@ const Gray = styled.div`
 
   @media (min-width: ${({ theme }) => theme.screen.md}) {
     width: calc(100% - 80px);
+    left: 4.25%;
   }
 `
 

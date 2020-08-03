@@ -112,7 +112,7 @@ const HeaderBase = styled.header`
   box-shadow: 0px -6px 14px 2px rgb(0 0 0 / 0.5);
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 99;
 `
 
 const Close = styled(SvgIcon)`

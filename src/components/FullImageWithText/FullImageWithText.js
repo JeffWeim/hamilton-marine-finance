@@ -30,6 +30,7 @@ export const query = graphql`
 const FullImageWithText = () => {
   useEffect(() => {
     const image = document.getElementsByClassName('image')
+    // eslint-disable-next-line
     new simpleParallax(image)
   }, [])
 

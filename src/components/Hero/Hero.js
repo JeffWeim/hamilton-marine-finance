@@ -1,13 +1,11 @@
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import Button from '../Button'
 import Display from '../Display'
 import Text from '../Text'
-
-const simpleParallax = typeof window !== `undefined` ? require('simple-parallax-js') : null
 
 export const query = graphql`
   {
@@ -45,11 +43,6 @@ export const query = graphql`
 `
 
 const Hero = () => {
-  useEffect(() => {
-    const image = document.getElementsByClassName('image')
-    new simpleParallax(image)
-  }, [])
-
   const render = data => {
     const {
       desktop: {
@@ -92,7 +85,7 @@ const Hero = () => {
             </CopyInner>
           </Copy>
 
-          <StyledImg className="image" alt={alt} fluid={heroSrc} loading="lazy" />
+          <StyledImg alt={alt} fluid={heroSrc} loading="lazy" />
         </Inner>
       </Container>
     )
@@ -162,14 +155,12 @@ const StyledImg = styled(Img)`
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     max-width: 520px;
-    /* height: 530px; */
     height: calc(530px + 12vw);
   }
 
   @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
     width: 920px;
     max-width: 100%;
-    /* height: auto; */
     max-height: 700px;
     height: calc(530px + 10.75vw);
   }
