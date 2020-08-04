@@ -4,14 +4,14 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 export const query = graphql`
-  query {
+  {
     images: allFile {
       edges {
         node {
           relativePath
           name
           childImageSharp {
-            fluid(maxWidth: 10000) {
+            fluid(maxWidth: 10000, quality: 90) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -22,7 +22,7 @@ export const query = graphql`
 `
 
 const Image = props => {
-  const { alt, className, placeholderClassName, src } = props
+  const { alt, className, loading, placeholderClassName, src } = props
 
   return (
     <StaticQuery
@@ -41,7 +41,7 @@ const Image = props => {
             alt={alt}
             className={className}
             fluid={image.node.childImageSharp.fluid}
-            loading="lazy"
+            loading={loading}
             placeholderClassName={placeholderClassName}
           />
         )
@@ -52,12 +52,14 @@ const Image = props => {
 
 Image.defaultProps = {
   className: '',
+  loading: 'lazy',
   placeholderClassName: '',
 }
 
 Image.propTypes = {
   alt: PropTypes.string.isRequired,
   className: PropTypes.string,
+  loading: PropTypes.string,
   placeholderClassName: PropTypes.string,
   src: PropTypes.string.isRequired,
 }

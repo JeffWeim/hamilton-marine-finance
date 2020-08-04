@@ -40,7 +40,7 @@ const Footer = () => {
       <Container>
         <Inner>
           <LogoContainer>
-            <Logo src="logo.png" alt="Hamilton Marine Finance Logo" />
+            <Logo src="logo--footer.png" alt="Hamilton Marine Finance Logo" loading="lazy" />
 
             <Small>Financing provided by Diverse Offerings Finance</Small>
           </LogoContainer>
@@ -218,10 +218,6 @@ const StyledIcon = styled(SvgIcon)`
         left: -20px;
       }
     `}
-`
-
-const Svg = styled.svg`
-  max-width: 100%;
 `
 
 export default Footer
