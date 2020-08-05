@@ -108,6 +108,7 @@ const fieldStyles = css`
 `
 
 const Container = styled.section`
+  overflow: hidden;
   padding: 100px 0;
 `
 
@@ -163,6 +164,11 @@ const Inner = styled.div`
     margin: 0 auto;
     max-width: 1480px;
     width: 100%;
+    padding: 80px 30px 0 0;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.xl}) {
+    padding: 80px 0 0 0;
   }
 `
 
