@@ -146,7 +146,7 @@ const Line = styled.hr`
 
 const StyledText = styled(Text)`
   margin: 0 0 60px;
-  line-height: 22px;
+  line-height: 33px;
 `
 
 const StyledImg = styled(Img)`
