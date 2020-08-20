@@ -40,10 +40,10 @@ module.exports = {
         name: `hamilton-marine-finance`,
         short_name: `hmf`,
         start_url: `/`,
-        background_color: `#1F2F97`,
+        background_color: `#fff`,
         theme_color: `#1F2F97`,
-        display: `minimal-ui`,
-        // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        display: `standalone`,
+        icon: `src/images/favicon/favicon-96x96.png`, // This path is relative to the root of the site.
       },
     },
     {

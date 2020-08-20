@@ -8,7 +8,7 @@ import SvgIcon from '../SvgIcon'
 
 const flickityOptions = {
   pageDots: true,
-  // contain: true,
+  autoPlay: 3000,
   prevNextButtons: false,
 }
 
