@@ -12,6 +12,7 @@ export const query = graphql`
   {
     datoCmsFullImage {
       image {
+        alt
         fluid(imgixParams: { q: 90, w: "1440", h: "730" }, maxWidth: 1400) {
           aspectRatio
           base64
@@ -37,13 +38,13 @@ const FullImageWithText = () => {
   const render = data => {
     const {
       datoCmsFullImage: {
-        image: { fluid },
+        image: { fluid, alt },
       },
     } = data
 
     return (
       <Container>
-        <StyledImage className="image" fluid={fluid} loading="lazy" />
+        <StyledImage alt={alt} className="image" fluid={fluid} loading="lazy" />
 
         <Copy>
           <StyledDisplay color="white">Live life full throttle.</StyledDisplay>

@@ -12,6 +12,7 @@ export const query = graphql`
   {
     datoCmsStaggeredImage {
       image {
+        alt
         fluid {
           aspectRatio
           base64
@@ -39,7 +40,7 @@ const ImageTextStaggered = () => {
   const render = data => {
     const {
       datoCmsStaggeredImage: {
-        image: [{ fluid: fluidImageOne }, { fluid: fluidImageTwo }],
+        image: [{ fluid: fluidImageOne, alt: altOne }, { fluid: fluidImageTwo, alt: altTwo }],
       },
     } = data
 
@@ -50,7 +51,7 @@ const ImageTextStaggered = () => {
 
           <Rows>
             <Row first>
-              <StyledImage first fluid={fluidImageOne} loading="lazy" />
+              <StyledImage alt={altOne} first fluid={fluidImageOne} loading="lazy" />
 
               <Copy first>
                 <SectionTitle>RV Financing</SectionTitle>
@@ -72,7 +73,7 @@ const ImageTextStaggered = () => {
                 </Text>
               </Copy>
 
-              <StyledImage second fluid={fluidImageTwo} loading="lazy" />
+              <StyledImage alt={altTwo} second fluid={fluidImageTwo} loading="lazy" />
             </Row>
           </Rows>
 

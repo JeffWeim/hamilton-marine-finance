@@ -13,6 +13,7 @@ export const query = graphql`
   {
     datoCmsContact {
       image {
+        alt
         fluid(imgixParams: { q: 85, w: "810", h: "640" }, maxWidth: 810) {
           aspectRatio
           base64
@@ -40,14 +41,14 @@ const Contact = () => {
   const render = data => {
     const {
       datoCmsContact: {
-        image: { fluid },
+        image: { fluid, alt },
       },
     } = data
 
     return (
       <Container id="contact">
         <Inner>
-          <StyledImage fluid={fluid} loading="lazy" />
+          <StyledImage alt={alt} fluid={fluid} loading="lazy" />
 
           <FormContainer>
             <StyledDisplay>Contact Us.</StyledDisplay>

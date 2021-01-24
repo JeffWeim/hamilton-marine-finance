@@ -16,6 +16,7 @@ export const query = graphql`
       copy
       author
       images {
+        alt
         fluid {
           width
           tracedSVG
@@ -38,7 +39,11 @@ const ImageGridWithQuote = () => {
       datoCmsAboutHmf: {
         author,
         copy,
-        images: [{ fluid: fluidOne }, { fluid: fluidTwo }, { fluid: fluidThree }],
+        images: [
+          { fluid: fluidOne, alt: altOne },
+          { fluid: fluidTwo, alt: altTwo },
+          { fluid: fluidThree, alt: altThree },
+        ],
         quote,
         sectionTitle,
       },
@@ -56,9 +61,9 @@ const ImageGridWithQuote = () => {
               <span dangerouslySetInnerHTML={createTitle()} />
             </StyledDisplay>
 
-            <StyledImageOne fluid={fluidOne} loading="lazy" />
+            <StyledImageOne alt={altOne} fluid={fluidOne} loading="lazy" />
 
-            <StyledImageTwo fluid={fluidTwo} loading="lazy" />
+            <StyledImageTwo alt={altTwo} fluid={fluidTwo} loading="lazy" />
           </Left>
 
           <Right>
@@ -66,7 +71,7 @@ const ImageGridWithQuote = () => {
               <span dangerouslySetInnerHTML={createTitle()} />
             </StyledDisplay>
 
-            <StyledImageThree fluid={fluidThree} loading="lazy" />
+            <StyledImageThree alt={altThree} fluid={fluidThree} loading="lazy" />
           </Right>
         </Images>
 
