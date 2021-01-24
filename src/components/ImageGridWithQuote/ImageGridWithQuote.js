@@ -12,6 +12,9 @@ import Text from '../Text'
 export const query = graphql`
   {
     datoCmsAboutHmf {
+      quote
+      copy
+      author
       images {
         fluid {
           width
@@ -24,6 +27,7 @@ export const query = graphql`
           aspectRatio
         }
       }
+      sectionTitle
     }
   }
 `
@@ -32,16 +36,24 @@ const ImageGridWithQuote = () => {
   const render = data => {
     const {
       datoCmsAboutHmf: {
+        author,
+        copy,
         images: [{ fluid: fluidOne }, { fluid: fluidTwo }, { fluid: fluidThree }],
+        quote,
+        sectionTitle,
       },
     } = data
+
+    const createTitle = () => {
+      return { __html: sectionTitle }
+    }
 
     return (
       <Container id="about">
         <Images>
           <Left>
             <StyledDisplay size="large" mobile>
-              About Hamilton <br /> Marine Finance.
+              <span dangerouslySetInnerHTML={createTitle()} />
             </StyledDisplay>
 
             <StyledImageOne fluid={fluidOne} loading="lazy" />
@@ -51,7 +63,7 @@ const ImageGridWithQuote = () => {
 
           <Right>
             <StyledDisplay size="large" desktop>
-              About Hamilton <br /> Marine Finance.
+              <span dangerouslySetInnerHTML={createTitle()} />
             </StyledDisplay>
 
             <StyledImageThree fluid={fluidThree} loading="lazy" />
@@ -64,19 +76,17 @@ const ImageGridWithQuote = () => {
           <Copy>
             <CopyLeft>
               <Display color="white" size="small">
-                Owning your dream is closer than you think.
+                {quote}
               </Display>
 
               <Text color="white" size="small">
-                - Jody Hamilton
+                {author}
               </Text>
             </CopyLeft>
 
             <CopyRight>
               <Text color="white" size="small">
-                Jody has financed more than Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Fusce sem erat, bibendum id diam at, lacinia fringilla tortor. Fusce odio justo,
-                facilisis non lectus vitae, ultricies gravida.
+                {copy}
               </Text>
             </CopyRight>
           </Copy>

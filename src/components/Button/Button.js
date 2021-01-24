@@ -11,7 +11,7 @@ const Button = props => {
       <ScrollBase
         className={className}
         color={color}
-        fullWidthMobile={fullWidthMobile}
+        $fullWidthMobile={fullWidthMobile}
         href={href}
         size={size}
         target={target}
@@ -25,7 +25,7 @@ const Button = props => {
     <Base
       className={className}
       color={color}
-      fullWidthMobile={fullWidthMobile}
+      $fullWidthMobile={fullWidthMobile}
       href={href}
       size={size}
       target={target}
