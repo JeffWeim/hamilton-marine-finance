@@ -10,7 +10,7 @@ import Hero from './Hero'
 import IconWithText from './IconWithText'
 import Image from './Image'
 import ImageGridWithQuote from './ImageGridWithQuote'
-import ImageTextStaggered from './ImageTextStaggered'
+import Services from './Services'
 import Layout from './Layout'
 import Loader from './Loader'
 import Seo from './Seo'
@@ -31,7 +31,7 @@ export {
   IconWithText,
   Image,
   ImageGridWithQuote,
-  ImageTextStaggered,
+  Services,
   Layout,
   Loader,
   Seo,

@@ -10,25 +10,32 @@ import Text from '../Text'
 
 export const query = graphql`
   {
-    datoCmsStaggeredImage {
-      image {
-        alt
-        fluid {
-          aspectRatio
-          base64
-          height
-          sizes
-          src
-          srcSet
-          tracedSVG
-          width
+    allDatoCmsOtherService {
+      nodes {
+        service {
+          title
+          copy
+          copyMaxWidth
+          image {
+            alt
+            fluid {
+              width
+              tracedSVG
+              srcSet
+              src
+              sizes
+              height
+              base64
+              aspectRatio
+            }
+          }
         }
       }
     }
   }
 `
 
-const ImageTextStaggered = () => {
+const Services = () => {
   useEffect(() => {
     // eslint-disable-next-line
     const rellax = new Rellax('.rellax2', {
@@ -39,8 +46,8 @@ const ImageTextStaggered = () => {
 
   const render = data => {
     const {
-      datoCmsStaggeredImage: {
-        image: [{ fluid: fluidImageOne, alt: altOne }, { fluid: fluidImageTwo, alt: altTwo }],
+      allDatoCmsOtherService: {
+        nodes: [{ service }],
       },
     } = data
 
@@ -50,32 +57,54 @@ const ImageTextStaggered = () => {
           <StyledDisplay>Other Services.</StyledDisplay>
 
           <Rows>
-            <Row first>
-              <StyledImage alt={altOne} first fluid={fluidImageOne} loading="lazy" />
+            {service.map((s, index) => (
+              <Row side={!!((index + 1) % 2)} key={index.toString()}>
+                <StyledImage
+                  alt={s.image.alt}
+                  fluid={s.image.fluid}
+                  loading="lazy"
+                  side={!!((index + 1) % 2)}
+                />
 
-              <Copy first>
-                <SectionTitle>RV Financing</SectionTitle>
+                <Copy side={!!((index + 1) % 2)}>
+                  <SectionTitle>{s.title}</SectionTitle>
 
-                <Text color="black" size="small">
-                  The best available financing options that will accomplish your goals for any kind
-                  of RV you’re looking for.
-                </Text>
-              </Copy>
-            </Row>
-
-            <Row second>
-              <Copy second>
-                <SectionTitle>Aviation Financing</SectionTitle>
-
-                <Text color="black" size="small">
-                  From pistons to turboprops and jets. We have programs to purchase, refinance,
-                  modify and upgrade that will work for you.
-                </Text>
-              </Copy>
-
-              <StyledImage alt={altTwo} second fluid={fluidImageTwo} loading="lazy" />
-            </Row>
+                  <Text color="black" size="small" maxWidth={s.copyMaxWidth}>
+                    {s.copy}
+                  </Text>
+                </Copy>
+              </Row>
+            ))}
           </Rows>
+
+          {/* <Rows>
+             <Row first>
+               <StyledImage alt={altOne} first fluid={fluidImageOne} loading="lazy" />
+
+               <Copy first>
+                 <SectionTitle>RV Financing</SectionTitle>
+
+                 <Text color="black" size="small">
+                   We offer the best available financing options to get you into the RV of your
+                   dreams and onto the road.
+                 </Text>
+               </Copy>
+             </Row>
+
+             <Row second>
+               <Copy second>
+                 <SectionTitle>Aviation Financing</SectionTitle>
+
+                 <Text color="black" size="small">
+                   Planes are just as unique as those who fly them! Whether your need is recreation,
+                   personal transportation or as a business tool there are many programs available.
+                   Pistons, turboprops, jets, purchase, or refinance we have programs for you.
+                 </Text>
+               </Copy>
+
+               <StyledImage alt={altTwo} second fluid={fluidImageTwo} loading="lazy" />
+             </Row>
+           </Rows> */}
 
           <Gray className="rellax2" />
         </Inner>
@@ -119,23 +148,23 @@ const Copy = styled.div`
     text-align: left;
   }
 
-  ${({ first }) =>
-    first &&
+  ${({ side }) =>
+    side &&
     css`
       @media (min-width: ${({ theme }) => theme.screen.md}) {
         padding: 0 0 0 40px;
       }
     `}
 
-  ${({ second }) =>
-    second &&
+  ${({ side }) =>
+    !side &&
     css`
       @media (min-width: ${({ theme }) => theme.screen.md}) {
         padding: 0 40px 0 0;
       }
 
       @media (min-width: ${({ theme }) => theme.screen.md1}) {
-        margin: 0 0 100px;
+        margin: 0 0 50px;
       }
 
       @media (min-width: ${({ theme }) => theme.screen.lg}) {
@@ -195,8 +224,14 @@ const Row = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${({ first }) =>
-    first &&
+  @media (min-width: ${({ theme }) => theme.screen.md}) {
+    flex-direction: row;
+    margin: 50px 0 0;
+    align-items: flex-start;
+  }
+
+  ${({ side }) =>
+    side &&
     css`
       margin: 0 0 60px;
 
@@ -205,21 +240,17 @@ const Row = styled.div`
       }
     `}
 
-  ${({ second }) =>
-    second &&
+  ${({ side }) =>
+    !side &&
     css`
-      flex-direction: column-reverse;
+      flex-direction: column;
+      margin-bottom: 40px;
 
       @media (min-width: ${({ theme }) => theme.screen.md}) {
-        flex-direction: column;
+        flex-direction: row-reverse;
+        margin-bottom: 0;
       }
     `}
-
-  @media (min-width: ${({ theme }) => theme.screen.md}) {
-    flex-direction: row;
-    margin: 50px 0 0;
-    align-items: flex-start;
-  }
 `
 
 const SectionTitle = styled.p`
@@ -242,4 +273,4 @@ const StyledImage = styled(Img)`
   flex-basis: 65%;
 `
 
-export default ImageTextStaggered
+export default Services

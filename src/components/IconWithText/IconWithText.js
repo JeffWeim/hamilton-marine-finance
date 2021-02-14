@@ -21,7 +21,7 @@ const IconWithText = () => {
             <StyleSvgIcon type="clipboard" />
 
             <StyledText color="white" size="small">
-              Fill out a credit application based on your <Strong>credit score & history</Strong>.
+              You&apos;ll fill out a credit application based on your credit score & history.
             </StyledText>
           </IconItem>
 
@@ -29,7 +29,7 @@ const IconWithText = () => {
             <StyleSvgIcon type="arrow" />
 
             <StyledText color="white" size="small">
-              Terms can range from <Strong>10-20</Strong> years, depending on your needs.
+              Terms can range from 10-20 years, depending on what fits best.
             </StyledText>
           </IconItem>
 
@@ -37,7 +37,7 @@ const IconWithText = () => {
             <StyleSvgIcon type="building" />
 
             <StyledText color="white" size="small">
-              We&apos;ll match you with the <Strong>best bank</Strong> that fits your needs.
+              We&apos;ll match you with the bank that works for you.
             </StyledText>
           </IconItem>
         </Icons>
@@ -46,7 +46,7 @@ const IconWithText = () => {
           <CenteredText color="white">
             We&apos;ll take care of the financing, find you the best options, and walk you through
             the process. We&apos;ll take care of the paperwork while you enjoy finding the right
-            boat for you & your family.{' '}
+            boat for you & your family.
           </CenteredText>
 
           <Buttons>
@@ -188,10 +188,6 @@ const Mobile = styled.span`
   @media (min-width: ${({ theme }) => theme.screen.md1}) {
     display: none;
   }
-`
-
-const Strong = styled.strong`
-  font-family: ${({ theme }) => theme.fonts.ProximaBold};
 `
 
 const StyledButton = styled(Button)`

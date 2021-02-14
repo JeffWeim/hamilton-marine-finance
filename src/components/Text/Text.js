@@ -4,10 +4,10 @@ import { fluidRange } from 'polished'
 import styled from 'styled-components'
 
 const Text = props => {
-  const { children, className, color, size } = props
+  const { children, className, color, size, maxWidth } = props
 
   return (
-    <TextBase className={className} color={color} size={size}>
+    <TextBase className={className} color={color} size={size} maxWidth={maxWidth}>
       {children}
     </TextBase>
   )
@@ -17,6 +17,8 @@ const TextBase = styled.p`
   color: ${({ color }) => color};
   font-family: ${({ theme }) => theme.fonts.ProximaRegular};
   line-height: ${({ theme, size }) => theme.fontStyles.text[size].lineHeight};
+  max-width: ${({ maxWidth }) => `${maxWidth}`};
+  width: 100%;
   ${({ theme, size }) =>
     fluidRange(
       {
@@ -34,6 +36,7 @@ Text.defaultProps = {
   className: '',
   color: 'black',
   size: 'regular',
+  maxWidth: '',
 }
 
 Text.propTypes = {
@@ -41,6 +44,7 @@ Text.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
   size: PropTypes.oneOf(['regular', 'small']),
+  maxWidth: PropTypes.string,
 }
 
 export default Text

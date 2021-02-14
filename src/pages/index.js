@@ -7,7 +7,7 @@ import {
   Hero,
   IconWithText,
   ImageGridWithQuote,
-  ImageTextStaggered,
+  Services,
   Testimonials,
 } from 'Components'
 
@@ -16,7 +16,7 @@ const IndexPage = () => {
     <>
       <Hero />
       <IconWithText />
-      <ImageTextStaggered />
+      <Services />
       <FullImageWithText />
       <ImageGridWithQuote />
       <Testimonials />

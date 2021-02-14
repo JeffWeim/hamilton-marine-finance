@@ -28,7 +28,7 @@ const Footer = () => {
     const {
       datoCmsFooterInformation: {
         emailInformation: [{ email }],
-        locationInformation: [{ googleMapsUrl, locationString }],
+        // locationInformation: [{ googleMapsUrl, locationString }],
         phoneInformation: [{ direct, office }],
       },
     } = data
@@ -65,13 +65,13 @@ const Footer = () => {
               </a>
             </Link>
 
-            <a className="white-box" href={googleMapsUrl} target="_blank" rel="noreferrer">
+            {/* <a className="white-box" href={googleMapsUrl} target="_blank" rel="noreferrer">
               <Link last>
                 <StyledIcon three type="location" />
 
                 <Small>{locationString}</Small>
               </Link>
-            </a>
+            </a> */}
           </Links>
         </Inner>
       </Container>

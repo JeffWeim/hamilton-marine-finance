@@ -1,7 +1,7 @@
-import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { StaticQuery, graphql } from 'gatsby'
 
 import Display from '../Display'
 import Button from '../Button'
@@ -24,6 +24,7 @@ export const query = graphql`
           width
         }
       }
+      title
     }
   }
 `
@@ -39,6 +40,7 @@ const FullImageWithText = () => {
     const {
       datoCmsFullImage: {
         image: { fluid, alt },
+        title,
       },
     } = data
 
@@ -47,7 +49,7 @@ const FullImageWithText = () => {
         <StyledImage alt={alt} className="image" fluid={fluid} loading="lazy" />
 
         <Copy>
-          <StyledDisplay color="white">Live life full throttle.</StyledDisplay>
+          <StyledDisplay color="white">{title}</StyledDisplay>
 
           <Button
             color="white"

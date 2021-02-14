@@ -35,8 +35,8 @@ const Header = () => {
         <Logo src="logo.png" alt="Hamilton Marine Finance Logo - Header" loading="eager" />
 
         <Links>
-          {links.map(link => (
-            <LinkItem key={link.text} desktop>
+          {links.map((link, index) => (
+            <LinkItem key={index.toString()} desktop>
               <Link offset="120" href={link.url}>
                 {link.text}
               </Link>
@@ -71,14 +71,19 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <MobileMenu
-            animate={{ opacity: 1, y: 120 }}
+            animate={{ opacity: 1, y: 89 }}
             exit={{ opacity: 0, y: 0 }}
             initial={{ opacity: 0, y: 0 }}
             key="mobile-menu"
             transition={{ ease: 'easeOut', duration: 0.3 }}
           >
-            {links.map(link => (
-              <MobileLink offset="100" href={link.url} onClick={() => setIsMobileMenuOpen(false)}>
+            {links.map((link, index) => (
+              <MobileLink
+                href={link.url}
+                key={index.toString()}
+                offset="100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 {link.text}
               </MobileLink>
             ))}
@@ -133,11 +138,11 @@ const Inner = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 30px;
+  padding: 15px 30px;
   position: relative;
+  transition: all 300ms ease;
   width: 100%;
   z-index: 60;
-  transition: all 300ms ease;
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     padding: 20px 60px;
@@ -216,7 +221,8 @@ const MobileMenu = styled(motion.div)`
   background-color: ${({ theme }) => theme.colors.tan};
   display: flex;
   flex-direction: column;
-  height: ${({ isScrolled }) => (isScrolled ? 'calc(100vh - 79px)' : 'calc(100vh - 119px)')};
+  /* height: ${({ isScrolled }) => (isScrolled ? 'calc(100vh - 79px)' : 'calc(100vh - 89px)')}; */
+  height: calc(100vh - 89px);
   justify-content: center;
   padding: 0 40px;
   position: fixed;
